@@ -88,7 +88,7 @@ h2 {
 }
 h3 {
 	font-size:16px;
-	text-align:left;
+	text-align:center;
 	color: mediumvioletred;
 	text-decoration: none;
 }
@@ -96,6 +96,20 @@ h4 {
 	font-size:16px;
 	text-align:left;
 	font-weight: normal;
+	color: darkslateblue;
+	text-decoration: none;
+}
+h5 {
+	font-size:16px;
+	text-align:center;
+	color: mediumvioletred;
+	text-decoration: none;
+	font-weight: normal;
+}
+h6 {
+	font-size:16px;
+	text-align:center;
+	font-weight: bold;
 	color: darkslateblue;
 	text-decoration: none;
 }
@@ -111,6 +125,11 @@ h4 {
 	width:100%;
 }
 
+.col-tab-one-third {
+	width:100%;
+	padding: 10px; 5px; 10px;
+}
+
 	/*For Tablet*/
 @media screen and (min-width: 768px) 
 {
@@ -124,6 +143,10 @@ h4 {
 	body {
 		max-width:778px;
 	}
+	.col-tab-one-third {
+	width:32%;
+	padding: 10px; 5px; 10px;
+	}
 }
 
 	/*For Desktop*/
@@ -135,5 +158,9 @@ h4 {
 	}
 	body {
 		max-width:1024px;
+	}
+	.col-tab-one-third {
+	width:32%;
+	padding: 10px; 5px; 10px;
 	}
 }
