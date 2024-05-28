@@ -2,7 +2,6 @@
 /* CSS DOCUMENT */
 
 html, html * {
-	
 	padding:0;
 	margin:0;
 	box-sizing: border-box;
@@ -22,6 +21,24 @@ img {
 	vertical-align:middle; 
 }
 
+a {
+	text-decoration: none;
+}
+
+.row:before, row:after {
+	content:"";
+	display:table;
+}
+
+.col {
+	width:100%;
+}
+
+.col-tab-one-third {
+	width:100%;
+	padding: 10px; 5px; 10px;
+}
+
 .style-logo {
 	width:100px;
 	margin-left:auto;
@@ -36,20 +53,14 @@ img {
 	display:block;	
 }
 	
-a {
-	text-decoration: none;
-}
-
-.row:before, row:after {
-	content:"";
-	display:table;
+.footer {
+	width:100%;
+	padding: 8px;
+	font-size:16px;
+	font-style:italic;
 }
 	
-.row: after {
-	clear:both;
-}
-	
-.row1 {
+#section-title {
 	padding: 5px; 30px; 5px;
 	color: darkslateblue;
 	font-weight: bold;
@@ -57,18 +68,16 @@ a {
 	margin-top:5px;
 }
 
-.row2 {
-	padding: 10px; 30px; 10px;
+#sections-texts {
+	padding: 5px; 30px; 5px;
 	color: darkslateblue;
 	text-align: left;
-	margin-top:20px;
+	margin-top:5px;
 }
 
-.row3 {
-	padding: 10px; 30px; 10px;
-	color: darkslateblue;
-	text-align: left;
-	margin-top:20px;
+#section-embed {
+	width:100%;
+	padding: 8px;
 }
 
 h1 {
@@ -77,7 +86,7 @@ h1 {
 	text-align:left;
 	color: darkolivegreen;
 	text-decoration: none;
-}
+/* here in sections, for 'aggis.org' title */}
 
 h2 {
 	font-size:16px;
@@ -85,53 +94,36 @@ h2 {
 	color: darkslateblue;
 	text-decoration: none;
 	font-weight: normal;
-}
+/* here in sections, for 'back to homepage' link */}
 h3 {
 	font-size:16px;
 	text-align:center;
 	color: mediumvioletred;
 	text-decoration: none;
-}
+/* here in sections, for Pink Bold Subtitles over body text */}
 h4 {
 	font-size:16px;
 	text-align:left;
 	font-weight: normal;
 	color: darkslateblue;
 	text-decoration: none;
-}
+/* here in sections, for main body text write ups etc */}
 h5 {
 	font-size:16px;
 	text-align:center;
 	color: mediumvioletred;
 	text-decoration: none;
 	font-weight: normal;
-}
+/* here in sections, for alternate normal-weight pink subtitle for toggle */}
 h6 {
 	font-size:16px;
 	text-align:center;
 	font-weight: bold;
 	color: darkslateblue;
 	text-decoration: none;
-}
+/* here in sections, for Bold captions in gallery tables */}
 
-.footer {
-	width:100%;
-	padding: 8px;
-	font-size:16px;
-	font-style:italic;
-}
-
-.col {
-	width:100%;
-}
-
-.col-tab-one-third {
-	width:100%;
-	padding: 10px; 5px; 10px;
-}
-
-	/*For Tablet*/
-@media screen and (min-width: 768px) 
+@media screen and (min-width: 768px) /* For Tablet */
 {
 	.col {
 		float:left;
@@ -148,9 +140,7 @@ h6 {
 	padding: 10px; 5px; 10px;
 	}
 }
-
-	/*For Desktop*/
-@media screen and (min-width: 1024px) 
+@media screen and (min-width: 1024px) /* For Desktop */
 {
 	h1 {
 		font-size:100px;

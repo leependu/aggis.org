@@ -2,7 +2,6 @@
 /* CSS DOCUMENT */
 
 html, html * {
-	
 	padding:0;
 	margin:0;
 	box-sizing: border-box;
@@ -22,6 +21,26 @@ img {
 	vertical-align:middle; 
 }
 
+a {
+	text-decoration: none;
+}
+
+.row:before, row:after {
+	content:"";
+	display:table;
+}
+
+.col {
+	width:100%;
+}
+
+.footer {
+	width:100%;
+	padding-top: 30px;
+	font-size:16px;
+	font-style:italic;
+}
+
 .style-logo {
 	width:100px;
 	margin-left:auto;
@@ -35,21 +54,8 @@ img {
 	margin-right:auto;
 	display:block;	
 }
-	
-a {
-	text-decoration: none;
-}
 
-.row:before, row:after {
-	content:"";
-	display:table;
-}
-	
-.row: after {
-	clear:both;
-}
-	
-.row1 {
+#about {
 	padding: 10px; 40px; 10px;
 	color: darkslateblue;
 	font-weight: bold;
@@ -57,7 +63,7 @@ a {
 	margin-top:20px;
 }
 
-.row2 {
+#sections {
 	padding: 10px; 40px; 10px;
 	color: darkslateblue;
 	text-align: left;
@@ -70,35 +76,24 @@ h1 {
 	text-align:left;
 	color: darkolivegreen;
 	text-decoration: none;
-}
+/* here on homepage, for 'aggis.org' title */}
 
 h2 {
 	font-size:16px;
 	font-weight:normal;
 	text-align:center;
 	color: darkslateblue;
-}
+/* here on homepage, for 'about' text */}
+	
 h3 {
 	font-size:16px;
 	font-weight:bold;
 	text-align:center;
 	color: darkslateblue;
 	text-decoration: none;
-}
+/* here on homepage, for resume email etc links */}
 	
-.footer {
-	width:100%;
-	padding-top: 30px;
-	font-size:16px;
-	font-style:italic;
-}
-
-.col {
-	width:100%;
-}
-
-	/*For Tablet*/
-@media screen and (min-width: 768px) 
+@media screen and (min-width: 768px) /* For Tablet */
 {
 	.col {
 		float:left;
@@ -111,9 +106,7 @@ h3 {
 		max-width:778px;
 	}
 }
-
-	/*For Desktop*/
-@media screen and (min-width: 1024px) 
+@media screen and (min-width: 1024px) /* For Desktop */
 {
 	h1 {
 		font-size:100px;
