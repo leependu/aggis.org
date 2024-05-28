@@ -6,7 +6,7 @@ html, html * {
 	padding:0;
 	margin:0;
 	box-sizing: border-box;
-	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
 }
 
 body {
@@ -50,7 +50,7 @@ a {
 }
 	
 .row1 {
-	padding: 20px; 50px; 20px;
+	padding: 10px; 40px; 10px;
 	color: darkslateblue;
 	font-weight: bold;
 	text-align: center;
@@ -58,7 +58,7 @@ a {
 }
 
 .row2 {
-	padding: 40px; 50px; 40px;
+	padding: 10px; 40px; 10px;
 	color: darkslateblue;
 	text-align: left;
 	margin-top:20px;
@@ -88,7 +88,7 @@ h3 {
 	
 .footer {
 	width:100%;
-	padding: 8px;
+	padding-top: 30px;
 	font-size:16px;
 	font-style:italic;
 }
