@@ -39,6 +39,13 @@ a {
 	padding: 10px; 5px; 10px;
 }
 
+.footer {
+	width:100%;
+	padding: 8px;
+	font-size:16px;
+	font-style:italic;
+}
+
 .style-logo {
 	width:100px;
 	margin-left:auto;
@@ -51,13 +58,6 @@ a {
 	margin-left:auto;
 	margin-right:auto;
 	display:block;	
-}
-	
-.footer {
-	width:100%;
-	padding: 8px;
-	font-size:16px;
-	font-style:italic;
 }
 	
 #section-title {
