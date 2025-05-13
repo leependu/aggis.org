@@ -1,0 +1,30 @@
+title,category,institution,department,class,format
+"TRPA: Cartographic Exercise #1, USGS/East of Nowhere Topographic Map",school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 499 Capstone II: Geospatial Capstone Project,image
+"TRPA: Cartographic Exercise #2, Tahoe Landcover Map",school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 499 Capstone II: Geospatial Capstone Project,image
+"TRPA: Cartographic Exercise #3, TART Mainline AM/PM Bus Route Map",school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 499 Capstone II: Geospatial Capstone Project,image
+TRPA: Conifer Encroachment Analysis,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 498 Capstone I: Geospatial Research Methods,pdf
+TRPA: Transportation Equity Study,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 498 Capstone I: Geospatial Research Methods,pdf
+TRPA: Water Clarity Analysis with NDTI,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 498 Capstone I: Geospatial Research Methods,pdf
+TRPA: Vikingsholm Accessibility Check,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 499 Capstone II: Geospatial Capstone Project,ArcGIS StoryMap
+Two Attempts at Supervised Object-based Classification with Landsat 8,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 411 Geospatial Imagery Analysis,pdf
+Vegetation (NDVI) Change Detection with NAIP Imagery,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 411 Geospatial Imagery Analysis,pdf
+Geospatial Statistics with R: Kernel Density,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 413 Applied Geospatial Statistics,pdf
+Geospatial Statistics with R: Spatial Autocorrelation,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 413 Applied Geospatial Statistics,pdf
+Geospatial Statistics with R: Spatial Regression,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 413 Applied Geospatial Statistics,pdf
+Results of the 2020 Moldova Presidential Election,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 414 Programming for Geospatial Data Science,webmap
+Socioeconomic Marginalization in Mexico,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 414 Programming for Geospatial Data Science,webmap
+Evolution of Income and Income Equality: 1800 to 2010,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 414 Programming for Geospatial Data Science,webmap
+Time Series of Italian Migration: 1900 to 2014,school,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 414 Programming for Geospatial Data Science,webmap
+ArcGIS Time Series of Italian Emigration,school,UCLA,Digital Humanities Graduate Certificate,DH 201 Core Seminar in Digital Humanities,ArcGIS webapp
+Mapping Pre-War Recording Hotspots for the DAHR,work,UCSB,Library Special Research Collections,Discography of American Historical Recordings / American Discography Project,ArcGIS webapp
+Olympic National Park Unofficial Visitor's Map,school,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 180 Cartography,pdf
+"Digitized Warehouse Structures in San Bernardino, CA",school,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf
+Moran's I LISA Report for 2016 US Presidential Election,school,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf
+Viewshed Analysis with T-Mobile Cellular Coverage,school,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181B Advanced GIS,pdf
+Interpolation with ArcGIS IDW and EB Kriging,school,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181B Advanced GIS,pdf
+Network Analysis for Starbucks Franchising,school,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181B Advanced GIS,pdf
+Site Suitability Analysis for Outdoor Recreation,school,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf
+"Fire Hazard for Residential Parcels in Riverside, CA",school,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf
+Fantasy and Nightmare Mapping,fun,aggis.org,,,image
+Strava-Derived Bicycle Heat Mapping,fun,aggis.org,,,image
+"Georeferenced Sanborn Fire Maps for Redlands, CA",school,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf
