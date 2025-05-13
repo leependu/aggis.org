@@ -17,6 +17,25 @@
 	</style>
 </head>
 	
+<!-- Modal for PDF/Image Viewer -->
+<div class="modal fade" id="fileViewerModal" tabindex="-1" aria-labelledby="fileViewerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="fileViewerModalLabel">File Viewer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="fileViewerContent">
+        <!-- Content will be dynamically inserted here -->
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-primary" id="fileDownloadLink" target="_blank">Open in New Tab</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Google Analytics tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFLGQQ89F2"></script>
 <script>
@@ -100,6 +119,62 @@
 	</div>
 	</div>
 </footer>	
+
+<!-- File Viewer Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all links to PDF or image files
+  const fileLinks = document.querySelectorAll('a[href$=".pdf"], a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"]');
+  
+  // Add click event listeners to these links
+  fileLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Prevent default navigation
+      e.preventDefault();
+      
+      // Get the file URL and type
+      const fileUrl = this.getAttribute('href');
+      const fileTitle = this.querySelector('.card-text')?.textContent || 'Resume';
+      const isPdf = fileUrl.toLowerCase().endsWith('.pdf');
+      
+      // Update modal title
+      document.getElementById('fileViewerModalLabel').textContent = fileTitle;
+      
+      // Update download link
+      const downloadLink = document.getElementById('fileDownloadLink');
+      downloadLink.href = fileUrl;
+      
+      // Clear previous content
+      const contentContainer = document.getElementById('fileViewerContent');
+      contentContainer.innerHTML = '';
+      
+      // Add appropriate viewer based on file type
+      if (isPdf) {
+        // For PDFs, use an object tag
+        const obj = document.createElement('object');
+        obj.setAttribute('data', fileUrl);
+        obj.setAttribute('type', 'application/pdf');
+        obj.setAttribute('width', '100%');
+        obj.setAttribute('height', '600px');
+        obj.innerHTML = `<p>Your browser doesn't support PDF viewing. <a href="${fileUrl}" target="_blank">Click here to download</a>.</p>`;
+        contentContainer.appendChild(obj);
+      } else {
+        // For images, use an img tag
+        const img = document.createElement('img');
+        img.src = fileUrl;
+        img.style.maxWidth = '100%';
+        img.style.height = 'auto';
+        img.alt = fileTitle;
+        contentContainer.appendChild(img);
+      }
+      
+      // Show the modal
+      const modal = new bootstrap.Modal(document.getElementById('fileViewerModal'));
+      modal.show();
+    });
+  });
+});
+</script>
 
 </body>
 
