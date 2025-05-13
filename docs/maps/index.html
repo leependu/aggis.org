@@ -27,7 +27,105 @@
 	
 <body>
 <!-- bootstrap bundle min js -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>	
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- filter logic for map gallery -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all map cards
+  const mapCards = document.querySelectorAll('.col');
+  
+  // Store active filters
+  let activeFilters = {
+    tool: 'all',
+    format: 'all',
+    topic: 'all',
+	school: 'all'
+  };
+  
+  // Add click event listeners to tool filter buttons
+  document.querySelectorAll('.tool-filters button').forEach(button => {
+    button.addEventListener('click', function() {
+      // Update active button in this group
+      document.querySelectorAll('.tool-filters button').forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Update active filter
+      activeFilters.tool = this.getAttribute('data-filter');
+      
+      // Apply filters
+      applyFilters();
+    });
+  });
+  
+  // Add click event listeners to format filter buttons
+  document.querySelectorAll('.format-filters button').forEach(button => {
+    button.addEventListener('click', function() {
+      // Update active button in this group
+      document.querySelectorAll('.format-filters button').forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Update active filter
+      activeFilters.format = this.getAttribute('data-filter');
+      
+      // Apply filters
+      applyFilters();
+    });
+  });
+  
+  // Add click event listeners to topic filter buttons
+  document.querySelectorAll('.topic-filters button').forEach(button => {
+    button.addEventListener('click', function() {
+      // Update active button in this group
+      document.querySelectorAll('.topic-filters button').forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Update active filter
+      activeFilters.topic = this.getAttribute('data-filter');
+      
+      // Apply filters
+      applyFilters();
+    });
+  });
+
+  // Add click event listeners to school filter buttons
+  document.querySelectorAll('.school-filters button').forEach(button => {
+    button.addEventListener('click', function() {
+      // Update active button in this group
+      document.querySelectorAll('.school-filters button').forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Update active filter
+      activeFilters.school = this.getAttribute('data-filter');
+      
+      // Apply filters
+      applyFilters();
+    });
+  });
+  
+  // Function to apply all active filters
+  function applyFilters() {
+    mapCards.forEach(card => {
+      const cardTool = card.getAttribute('data-tool');
+      const cardFormat = card.getAttribute('data-format');
+      const cardTopic = card.getAttribute('data-topic');
+	  const cardSchool = card.getAttribute('data-school');
+      
+      // Check if card matches all active filters
+      const matchesTool = activeFilters.tool === 'all' || cardTool === activeFilters.tool;
+      const matchesFormat = activeFilters.format === 'all' || cardFormat === activeFilters.format;
+      const matchesTopic = activeFilters.topic === 'all' || cardTopic === activeFilters.topic;
+	  const matchesSchool = activeFilters.school === 'all' || cardSchool === activeFilters.school;
+      
+      // Show/hide card based on filter matches
+      if (matchesTool && matchesFormat && matchesTopic && matchesSchool) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+});
+</script>
 <!-- actual body -->
 <div class="container" id="header">
 <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -52,470 +150,500 @@
 			Some kind of something to say about my maps.
 			<hr/>
 		</div>
+	</div>
+<div class="container filter-container">
+	<div class="row mb-4">
+		<div class="col-md-4">
+			<h5>Filter by Topic:</h5>
+			<div class="btn-group topic-filters" role="group">
+			<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="remote-sensing">Remote Sensing</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="statistics">Statistics</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="cartography">Cartography</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="planning">Planning</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="elections">Elections</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="socioeconomic">Socioeconomic</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="history">History</button>
+			</div>
+		</div>
+	</div>
+	<div class="row mb-4">
+		<div class="col-md-4">
+			<h5>Filter by Tool:</h5>
+			<div class="btn-group tool-filters" role="group">
+			<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="ArcGIS Pro">ArcGIS Pro</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="ArcGIS Online">ArcGIS Online</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="Adobe Illustrator">Adobe Illustrator</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="GeoDa">GeoDa</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="RStudio">RStudio</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="Leaflet">Leaflet</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="D3">D3</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="QGIS">QGIS</button>
+			</div>
+		</div>
+	</div>
+	<div class="row mb-4">
+		<div class="col-md-4">
+			<h5>Filter by Format:</h5>
+			<div class="btn-group format-filters" role="group">
+			<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="pdf">PDF</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="image">image</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="webmap">webmap</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="ArcGIS StoryMap">ArcGIS StoryMap</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="ArcGIS app">ArcGIS app</button>
+			</div>
+		</div>
+	</div>
+	<div class="row mb-4">
+		<div class="col-md-4">
+			<h5>Filter by School:</h5>
+			<div class="btn-group school-filters" role="group">
+			<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="uclaext">UCLA Extension</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="magist">UCLA MAGIST</button>
+			<button type="button" class="btn btn-outline-primary" data-filter="fun">Fun!</button>
+			</div>
+		</div>
+	</div>
 </div>
+	
+
 </div>
 	<div class="album py-5 bg-body-tertiary">
 	<div class="container">
 	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-		<div class="col">
+		<div class="col" data-tool="Adobe Illustrator" data-format="image" data-topic="cartography" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_499_trpa_cartographyexercise_1_thumb.png" alt=""/>
 			<a href="../files/maps/images/agg_geog_499_trpa_cartographyexercise_1a.png" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">TRPA: Cartographic Exercise #1, USGS/East of Nowhere Topographic Map</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">Adobe Illustrator</small>
+				<span class="badge bg-black">Cartography</span>
+				<span class="badge bg-primary">Adobe Illustrator</span>
+				<span class="badge bg-secondary">image</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="Adobe Illustrator" data-format="image" data-topic="cartography" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_499_trpa_cartographyexercise_2_thumb.png" alt=""/>
 			<a href="../files/maps/images/agg_geog_499_trpa_cartographyexercise_2.png" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">TRPA: Cartographic Exercise #2, Tahoe Landcover Map</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">Adobe Illustrator</small>
+				<span class="badge bg-black">Cartography</span>
+				<span class="badge bg-primary">Adobe Illustrator</span>
+				<span class="badge bg-secondary">image</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="Adobe Illustrator" data-format="image" data-topic="cartography" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_499_trpa_cartographyexercise_3_thumb.png" alt=""/>
 			<a href="../files/maps/images/agg_geog_499_trpa_cartographyexercise_3.png" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">TRPA: Cartographic Exercise #3, TART Mainline AM/PM Bus Route Map</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">Adobe Illustrator</small>
+				<span class="badge bg-black">Cartography</span>
+				<span class="badge bg-primary">Adobe Illustrator</span>
+				<span class="badge bg-secondary">image</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Pro" data-format="pdf" data-topic="remote-sensing" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_498_trpa_coniferencroachment_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_498_trpa_coniferencroachment.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">TRPA: Conifer Encroachment Analysis</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Pro</small>
+				<span class="badge bg-black">Remote Sensing</span>
+				<span class="badge bg-primary">ArcGIS Pro</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Pro" data-format="pdf" data-topic="statistics" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_498_trpa_transportationequity_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_498_trpa_transportationequity.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">TRPA: Transportation Equity Study</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Pro</small>
+				<span class="badge bg-black">Statistics</span>
+				<span class="badge bg-primary">ArcGIS Pro</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Pro" data-format="pdf" data-topic="remote-sensing" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_498_trpa_waterclarity_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_498_trpa_waterclarity.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">TRPA: Water Clarity Analysis with NDTI</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Pro</small>
+				<span class="badge bg-black">Remote Sensing</span>
+				<span class="badge bg-primary">ArcGIS Pro</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Online" data-format="ArcGIS StoryMap" data-topic="planning" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog499_trpa_vikingsholm_thumb.png" alt=""/>
 			<a href="https://arcg.is/WCHni0" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">TRPA: Vikingsholm Accessibility Check</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS StoryMap</small>
+				<span class="badge bg-black">Planning</span>
+				<span class="badge bg-primary">ArcGIS Online</span>
+				<span class="badge bg-secondary">ArcGIS StoryMap</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Pro" data-format="pdf" data-topic="remote-sensing" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_411_supervisedimageclassificaton_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_411_supervisedimageclassificaton_b.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Two Attempts at Supervised Object-based Classification with Landsat 8</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Pro</small>
+				<span class="badge bg-black">Remote Sensing</span>
+				<span class="badge bg-primary">ArcGIS Pro</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Pro" data-format="pdf" data-topic="remote-sensing" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_411_ndvichangedetection_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_411_ndvichangedetection.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Vegetation (NDVI) Change Detection with NAIP Imagery</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Pro</small>
+				<span class="badge bg-black">Remote Sensing</span>
+				<span class="badge bg-primary">ArcGIS Pro</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="RStudio" data-format="pdf" data-topic="statistics" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_413_kerneldensity_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_413_kerneldensity.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Geospatial Statistics with R: Kernel Density</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">RStudio</small>
+				<span class="badge bg-black">Statistics</span>
+				<span class="badge bg-primary">RStudio</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="RStudio" data-format="pdf" data-topic="statistics" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_413_spatialautocorrelation_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_413_spatialautocorrelation.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Geospatial Statistics with R: Spatial Autocorrelation</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">RStudio</small>
+				<span class="badge bg-black">Statistics</span>
+				<span class="badge bg-primary">RStudio</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="RStudio" data-format="pdf" data-topic="statistics" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_413_spatialregression_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_413_spatialregression.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Geospatial Statistics with R: Spatial Regression</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">RStudio</small>
+				<span class="badge bg-black">Statistics</span>
+				<span class="badge bg-primary">RStudio</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="Leaflet" data-format="webmap" data-topic="elections" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_414_u2a_moldova-election_thumb.png" alt=""/>
 			<a href="https://aggis.org/maps/unit2a/" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Results of the 2020 Moldova Presidential Election</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">Leaflet</small>
+				<span class="badge bg-black">Elections</span>
+				<span class="badge bg-primary">Leaflet</span>
+				<span class="badge bg-secondary">webmap</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="Leaflet" data-format="webmap" data-topic="socioeconomic" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_414_u2b_mx-lit_thumb.png" alt=""/>
 			<a href="https://aggis.org/maps/unit2b/" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Socioeconomic Marginalization in Mexico</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">Leaflet</small>
+				<span class="badge bg-black">Socioeconomic</span>
+				<span class="badge bg-primary">Leaflet</span>	
+				<span class="badge bg-secondary">webmap</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="D3" data-format="webmap" data-topic="socioeconomic" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_414_u4_income-gini_thumb.png" alt=""/>
 			<a href="https://aggis.org/maps/unit4/" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Evolution of Income and Income Equality: 1800 to 2010</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">D3</small>
+				<span class="badge bg-black">Socioeconomic</span>
+				<span class="badge bg-primary">D3</span>
+				<span class="badge bg-secondary">webmap</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="D3" data-format="webmap" data-topic="socioeconomic" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_414_u5_istat_thumb.png" alt=""/>
 			<a href="https://aggis.org/maps/unit5/" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Time Series of Italian Migration: 1900 to 2014</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">D3</small>
+				<span class="badge bg-black">Socioeconomic</span>
+				<span class="badge bg-primary">D3</span>
+				<span class="badge bg-secondary">webmap</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Online" data-format="ArcGIS app" data-topic="socioeconomic" data-school="magist">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/extra_istat_thumb.png" alt=""/>
 			<a href="https://aggis.org/maps/istat/" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">ArcGIS Time Series of Italian Emigration</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Online</small>
+				<span class="badge bg-black">Socioeconomic</span>
+				<span class="badge bg-primary">ArcGIS Online</span>
+				<span class="badge bg-secondary">ArcGIS app</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-			<div class="col">
+		<div class="col" data-tool="ArcGIS Online" data-format="ArcGIS app" data-topic="history" data-school="fun">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/extra_dahr_thumb.png" alt=""/>
 			<a href="https://aggis.org/maps/dahr/" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Pre-War Recording Hotspots in the DAHR</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Online</small>
+				<span class="badge bg-black">History</span>
+				<span class="badge bg-primary">ArcGIS Online</span>
+				<span class="badge bg-secondary">ArcGIS app</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="Adobe Illustrator" data-format="pdf" data-topic="cartography" data-school="uclaext">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_xl_180_cartfinal_olympicnp_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_xl_180_cartfinal_olympicnp.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Olympic National Park Unofficial Visitor's Map</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">Adobe Illustrator</small>
+				<span class="badge bg-black">Cartography</span>
+				<span class="badge bg-primary">Adobe Illustrator</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Pro" data-format="pdf" data-topic="socioeconomic" data-school="uclaext">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_xl_181a_final_sbcounty_warehousing_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_xl_181a_final_sbcounty_warehousing.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Digitized Warehouse Structures in San Bernardino, CA</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Pro</small>
+				<span class="badge bg-black">Socioeconomic</span>
+				<span class="badge bg-primary">ArcGIS Pro</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="GeoDa" data-format="pdf" data-topic="elections" data-school="uclaext">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_xl_181a_LISA_report_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_xl_181a_LISA_report.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Moran's I LISA Report for 2016 US Presidential Election</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">GeoDa</small>
+				<span class="badge bg-black">Elections</span>
+				<span class="badge bg-primary">GeoDa</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Pro" data-format="pdf" data-topic="planning" data-school="uclaext">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_xl_181b_viewshedanalysis_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_xl_181b_viewshedanalysis.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Viewshed Analysis with T-Mobile Cellular Coverage</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Pro</small>
+				<span class="badge bg-black">Planning</span>
+				<span class="badge bg-primary">ArcGIS Pro</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Pro" data-format="pdf" data-topic="planning" data-school="uclaext">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_xl_181b_interpolation_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_xl_181b_interpolation.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Interpolation with ArcGIS IDW and EB Kriging</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Pro</small>
+				<span class="badge bg-black">Planning</span>
+				<span class="badge bg-primary">ArcGIS Pro</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Pro" data-format="pdf" data-topic="planning" data-school="uclaext">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_xl_181b_networkanalysis_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_xl_181b_networkanalysis.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Network Analysis for Starbucks Franchising</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Pro</small>
+				<span class="badge bg-black">Planning</span>
+				<span class="badge bg-primary">ArcGIS Pro</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Pro" data-format="pdf" data-topic="planning" data-school="uclaext">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_xl_181a_sitesuitability_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_xl_181a_sitesuitability.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Site Suitability Analysis for Outdoor Recreation</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Pro</small>
+				<span class="badge bg-black">Planning</span>
+				<span class="badge bg-primary">ArcGIS Pro</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="ArcGIS Pro" data-format="pdf" data-topic="planning" data-school="uclaext">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_xl_181a_riversideca_firehazard_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_xl_181a_riversideca_firehazard.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Fire Hazard for Residential Parcels in Riverside, CA</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">ArcGIS Pro</small>
+				<span class="badge bg-black">Planning</span>
+				<span class="badge bg-primary">ArcGIS Pro</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="Adobe Illustrator" data-format="image" data-topic="cartography" data-school="fun">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/extra_rpg_thumb.png" alt=""/>
 			<a href="https://aggis.org/maps/rpg/" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Fantasy and Nightmare Mapping</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">Adobe Illustrator</small>
+				<span class="badge bg-black">Cartography</span>
+				<span class="badge bg-primary">Adobe Illustrator</span>
+				<span class="badge bg-secondary">image</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="Adobe Illustrator" data-format="image" data-topic="cartography" data-school="fun">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/extra_bike_thumb.png" alt=""/>
 			<a href="https://aggis.org/maps/bike/" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Strava-Derived Bicycle Heat Mapping</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">Strava</small>
+				<span class="badge bg-black">Cartography</span>
+				<span class="badge bg-primary">Adobe Illustrator</span>
+				<span class="badge bg-secondary">image</span>
 				</div>
 				</div>
 			</a>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col" data-tool="QGIS" data-format="pdf" data-topic="history" data-school="uclaext">
 			<div class="card shadow-sm">
 			<img src="../images/thumb/agg_geog_xl_181a_georeferencedsanborn_thumb.png" alt=""/>
 			<a href="../files/maps/pdf/agg_geog_xl_181a_georeferencedsanborn.pdf" style="text-decoration:none">
 				<div class="card-body">
 				<p class="card-text">Georeferenced Sanborn Fire Maps for Redlands, CA</p>
 				<div class="d-flex justify-content-between align-items-center">
-				<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-				</div>
-				<small class="text-body-secondary">QGIS</small>
+				<span class="badge bg-black">History</span>
+				<span class="badge bg-primary">QGIS</span>
+				<span class="badge bg-secondary">PDF</span>
 				</div>
 				</div>
 			</a>

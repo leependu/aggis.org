@@ -1,11 +1,11 @@
-title,category,tags,institution,department,class,format,tool
+title,purpose,topic,institution,department,class,format,tool
 "TRPA: Cartographic Exercise #1, USGS/East of Nowhere Topographic Map",school,cartography,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 499 Capstone II: Geospatial Capstone Project,image,Adobe Illustrator
 "TRPA: Cartographic Exercise #2, Tahoe Landcover Map",school,cartography,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 499 Capstone II: Geospatial Capstone Project,image,Adobe Illustrator
 "TRPA: Cartographic Exercise #3, TART Mainline AM/PM Bus Route Map",school,cartography,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 499 Capstone II: Geospatial Capstone Project,image,Adobe Illustrator
 TRPA: Conifer Encroachment Analysis,school,remote-sensing,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 498 Capstone I: Geospatial Research Methods,pdf,ArcGIS Pro
 TRPA: Transportation Equity Study,school,statistics,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 498 Capstone I: Geospatial Research Methods,pdf,ArcGIS Pro
 TRPA: Water Clarity Analysis with NDTI,school,remote-sensing,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 498 Capstone I: Geospatial Research Methods,pdf,ArcGIS Pro
-TRPA: Vikingsholm Accessibility Check,school,planning/analytics,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 499 Capstone II: Geospatial Capstone Project,ArcGIS StoryMap,ArcGIS StoryMap
+TRPA: Vikingsholm Accessibility Check,school,planning,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 499 Capstone II: Geospatial Capstone Project,ArcGIS StoryMap,ArcGIS Online
 Two Attempts at Supervised Object-based Classification with Landsat 8,school,remote-sensing,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 411 Geospatial Imagery Analysis,pdf,ArcGIS Pro
 Vegetation (NDVI) Change Detection with NAIP Imagery,school,remote-sensing,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 411 Geospatial Imagery Analysis,pdf,ArcGIS Pro
 Geospatial Statistics with R: Kernel Density,school,statistics,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 413 Applied Geospatial Statistics,pdf,RStudio
@@ -15,16 +15,16 @@ Results of the 2020 Moldova Presidential Election,school,elections,UCLA,Master o
 Socioeconomic Marginalization in Mexico,school,socioeconomic,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 414 Programming for Geospatial Data Science,webmap,Leaflet
 Evolution of Income and Income Equality: 1800 to 2010,school,socioeconomic,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 414 Programming for Geospatial Data Science,webmap,D3
 Time Series of Italian Migration: 1900 to 2014,school,socioeconomic,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 414 Programming for Geospatial Data Science,webmap,D3
-ArcGIS Time Series of Italian Emigration,school,socioeconomic,UCLA,Digital Humanities Graduate Certificate,DH 201 Core Seminar in Digital Humanities,ArcGIS webapp,ArcGIS Online
-Mapping Pre-War Recording Hotspots for the DAHR,fun,history; musicology,UCSB,Library Special Research Collections,Discography of American Historical Recordings / American Discography Project,ArcGIS webapp,ArcGIS Online
+ArcGIS Time Series of Italian Emigration,school,socioeconomic,UCLA,Digital Humanities Graduate Certificate,DH 201 Core Seminar in Digital Humanities,ArcGIS app,ArcGIS Online
+Mapping Pre-War Recording Hotspots for the DAHR,fun,history,UCSB,Library Special Research Collections,Discography of American Historical Recordings / American Discography Project,ArcGIS app,ArcGIS Online
 Olympic National Park Unofficial Visitor's Map,school,cartography,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 180 Cartography,pdf,Adobe Illustrator
 "Digitized Warehouse Structures in San Bernardino, CA",school,socioeconomic,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf,ArcGIS Pro
-Moran's I LISA Report for 2016 US Presidential Election,school,elections,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf,GeoDA
-Viewshed Analysis with T-Mobile Cellular Coverage,school,planning/analytics,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181B Advanced GIS,pdf,ArcGIS Pro
-Interpolation with ArcGIS IDW and EB Kriging,school,planning/analytics,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181B Advanced GIS,pdf,ArcGIS Pro
-Network Analysis for Starbucks Franchising,school,planning/analytics,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181B Advanced GIS,pdf,ArcGIS Pro
-Site Suitability Analysis for Outdoor Recreation,school,planning/analytics,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf,ArcGIS Pro
-"Fire Hazard for Residential Parcels in Riverside, CA",school,planning/analytics,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf,ArcGIS Pro
+Moran's I LISA Report for 2016 US Presidential Election,school,elections,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf,GeoDa
+Viewshed Analysis with T-Mobile Cellular Coverage,school,planning,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181B Advanced GIS,pdf,ArcGIS Pro
+Interpolation with ArcGIS IDW and EB Kriging,school,planning,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181B Advanced GIS,pdf,ArcGIS Pro
+Network Analysis for Starbucks Franchising,school,planning,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181B Advanced GIS,pdf,ArcGIS Pro
+Site Suitability Analysis for Outdoor Recreation,school,planning,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf,ArcGIS Pro
+"Fire Hazard for Residential Parcels in Riverside, CA",school,planning,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf,ArcGIS Pro
 Fantasy and Nightmare Mapping,fun,cartography,aggis.org,,,image,Adobe Illustrator
-Strava-Derived Bicycle Heat Mapping,fun,cartography,aggis.org,,,image,Strava
+Strava-Derived Bicycle Heat Mapping,fun,cartography,aggis.org,,,image,Adobe Illustrator
 "Georeferenced Sanborn Fire Maps for Redlands, CA",school,history,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf,QGIS
