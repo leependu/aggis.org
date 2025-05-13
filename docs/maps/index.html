@@ -50,8 +50,8 @@
 <!-- filter logic for map gallery -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Get all map cards
-  const mapCards = document.querySelectorAll('.col');
+  // Get all map cards (only those in the album section, not the header section)
+  const mapCards = document.querySelectorAll('.album .col');
   
   // Store active filters
   let activeFilters = {
