@@ -15,6 +15,25 @@
 	</style>
 </head>
 	
+<!-- Modal for PDF/Image Viewer -->
+<div class="modal fade" id="fileViewerModal" tabindex="-1" aria-labelledby="fileViewerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="fileViewerModalLabel">File Viewer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="fileViewerContent">
+        <!-- Content will be dynamically inserted here -->
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-primary" id="fileDownloadLink" target="_blank">Open in New Tab</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Google Analytics tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFLGQQ89F2"></script>
 <script>
@@ -143,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>	
 	
 <main>
-	<div class="container">
+<div class="container">
 	<div class="row">
 		<div class="col">
 			<h2>Maps</h2><br>
@@ -151,65 +170,68 @@ document.addEventListener('DOMContentLoaded', function() {
 			<hr/>
 		</div>
 	</div>
-<div class="container filter-container">
-	<div class="row mb-4">
-		<div class="col-md-4">
-			<h5>Filter by Topic:</h5>
-			<div class="btn-group topic-filters" role="group">
-			<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="remote-sensing">Remote Sensing</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="statistics">Statistics</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="cartography">Cartography</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="planning">Planning</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="elections">Elections</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="socioeconomic">Socioeconomic</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="history">History</button>
-			</div>
-		</div>
-	</div>
-	<div class="row mb-4">
-		<div class="col-md-4">
-			<h5>Filter by Tool:</h5>
-			<div class="btn-group tool-filters" role="group">
-			<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="ArcGIS Pro">ArcGIS Pro</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="ArcGIS Online">ArcGIS Online</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="Adobe Illustrator">Adobe Illustrator</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="GeoDa">GeoDa</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="RStudio">RStudio</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="Leaflet">Leaflet</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="D3">D3</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="QGIS">QGIS</button>
-			</div>
-		</div>
-	</div>
-	<div class="row mb-4">
-		<div class="col-md-4">
-			<h5>Filter by Format:</h5>
-			<div class="btn-group format-filters" role="group">
-			<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="pdf">PDF</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="image">image</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="webmap">webmap</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="ArcGIS StoryMap">ArcGIS StoryMap</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="ArcGIS app">ArcGIS app</button>
-			</div>
-		</div>
-	</div>
-	<div class="row mb-4">
-		<div class="col-md-4">
-			<h5>Filter by School:</h5>
-			<div class="btn-group school-filters" role="group">
-			<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="uclaext">UCLA Extension</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="magist">UCLA MAGIST</button>
-			<button type="button" class="btn btn-outline-primary" data-filter="fun">Fun!</button>
-			</div>
-		</div>
-	</div>
-</div>
 	
-
+	<button class="btn btn-primary mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#filterContainer" aria-expanded="false" aria-controls="filterContainer">
+	  Show/Hide Filters
+	</button>
+	
+	<div class="collapse filter-container" id="filterContainer">
+		<div class="row mb-4">
+			<div class="col-md-4">
+				<h5>Filter by Topic:</h5>
+				<div class="btn-group topic-filters" role="group">
+				<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="remote-sensing">Remote Sensing</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="statistics">Statistics</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="cartography">Cartography</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="planning">Planning</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="elections">Elections</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="socioeconomic">Socioeconomic</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="history">History</button>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-4">
+			<div class="col-md-4">
+				<h5>Filter by Tool:</h5>
+				<div class="btn-group tool-filters" role="group">
+				<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="ArcGIS Pro">ArcGIS Pro</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="ArcGIS Online">ArcGIS Online</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="Adobe Illustrator">Adobe Illustrator</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="GeoDa">GeoDa</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="RStudio">RStudio</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="Leaflet">Leaflet</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="D3">D3</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="QGIS">QGIS</button>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-4">
+			<div class="col-md-4">
+				<h5>Filter by Format:</h5>
+				<div class="btn-group format-filters" role="group">
+				<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="pdf">PDF</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="image">image</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="webmap">webmap</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="ArcGIS StoryMap">ArcGIS StoryMap</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="ArcGIS app">ArcGIS app</button>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-4">
+			<div class="col-md-4">
+				<h5>Filter by School:</h5>
+				<div class="btn-group school-filters" role="group">
+				<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="uclaext">UCLA Extension</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="magist">UCLA MAGIST</button>
+				<button type="button" class="btn btn-outline-primary" data-filter="fun">Fun!</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 	<div class="album py-5 bg-body-tertiary">
 	<div class="container">
@@ -309,7 +331,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			<img src="../images/thumb/agg_geog499_trpa_vikingsholm_thumb.png" alt=""/>
 			<a href="https://arcg.is/WCHni0" style="text-decoration:none">
 				<div class="card-body">
-				<p class="card-text">TRPA: Vikingsholm Accessibility Check</p>
+				<p class="card-text">TRPA: Vikingsholm Accessibility Check [external]</p>
 				<div class="d-flex justify-content-between align-items-center">
 				<span class="badge bg-black">Planning</span>
 				<span class="badge bg-primary">ArcGIS Online</span>
@@ -664,6 +686,62 @@ document.addEventListener('DOMContentLoaded', function() {
 	</div>
 	</div>
 </footer>	
+
+<!-- File Viewer Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all links to PDF or image files
+  const fileLinks = document.querySelectorAll('a[href$=".pdf"], a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"]');
+  
+  // Add click event listeners to these links
+  fileLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Prevent default navigation
+      e.preventDefault();
+      
+      // Get the file URL and type
+      const fileUrl = this.getAttribute('href');
+      const fileTitle = this.querySelector('.card-text')?.textContent || 'File Viewer';
+      const isPdf = fileUrl.toLowerCase().endsWith('.pdf');
+      
+      // Update modal title
+      document.getElementById('fileViewerModalLabel').textContent = fileTitle;
+      
+      // Update download link
+      const downloadLink = document.getElementById('fileDownloadLink');
+      downloadLink.href = fileUrl;
+      
+      // Clear previous content
+      const contentContainer = document.getElementById('fileViewerContent');
+      contentContainer.innerHTML = '';
+      
+      // Add appropriate viewer based on file type
+      if (isPdf) {
+        // For PDFs, use an object tag
+        const obj = document.createElement('object');
+        obj.setAttribute('data', fileUrl);
+        obj.setAttribute('type', 'application/pdf');
+        obj.setAttribute('width', '100%');
+        obj.setAttribute('height', '600px');
+        obj.innerHTML = `<p>Your browser doesn't support PDF viewing. <a href="${fileUrl}" target="_blank">Click here to download</a>.</p>`;
+        contentContainer.appendChild(obj);
+      } else {
+        // For images, use an img tag
+        const img = document.createElement('img');
+        img.src = fileUrl;
+        img.style.maxWidth = '100%';
+        img.style.height = 'auto';
+        img.alt = fileTitle;
+        contentContainer.appendChild(img);
+      }
+      
+      // Show the modal
+      const modal = new bootstrap.Modal(document.getElementById('fileViewerModal'));
+      modal.show();
+    });
+  });
+});
+</script>
 
 </body>
 
