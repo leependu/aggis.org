@@ -52,11 +52,11 @@
 				<hr/>
 				This map application displays information including recording location for nearly 70,000 78rpm records housed in UCSB's DAHR collection. Interactive widgets allow greater exploration of data related to record companies, recording dates and locations, and talents or artists.
 				<br><br>
-				This map application was created with flat files retrieved in person at UCSB Special Research Collections' 78rpm archive, specifically the collection labelled the American Discography Project, or Discography of American Historical Recordings--the project I am working on as an audio digitization assistant.
+				The data visualized are flat files retrieved in person at UCSB Special Research Collections' 78rpm archive, specifically the collection labelled the American Discography Project, or Discography of American Historical Recordings--the project I am working on as an audio digitization assistant.
 				<br><br>
-				The feature class contained in this webmap is a product of a join of two tables. One table from the archive matrix database contained recording information with locations, and this was joined to a table which georeferenced and labelled details for those locations.
+				The feature class contained in this webmap is the product of a join of two tables. One table from the DAHR database contains metadata for unique recordings including place / location (`matrix`), and this was joined to a table which georeferences and labels details for those places / locations (`geo`). 
 				<br><br>
-				This is the first static build, launched March 18, 2023. Data scrubbed and designed by me, retrieved from work by permission of project director.
+				The joined dataset required cleaning before it could be used in ArcGIS Online. In the future, I am eager to revisit the database in an effort to better handle edge cases caused by character encoding or timestamp errors. I would also like to experiment with other forms of visualization and analysis.
 				<br><br>
 				<a href="https://arcg.is/1C9G5m3">[external link]</a>
 				<br><br>
