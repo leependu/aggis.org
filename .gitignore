@@ -1,1 +1,17 @@
+# dotenv environment variable files
+.env
+
+# Distribution / packaging
+build/
+dist/
+
+# Environments
+.env
+__pycache__
+.venv
+
+# OS
 desktop.ini
+*/desktop.ini
+.DS_Store
+*/.DS_Store
