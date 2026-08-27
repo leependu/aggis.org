@@ -5,55 +5,15 @@
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>aggis.org/about</title>
+	<title>aggis.org/writing/about</title>
 	<!-- bootstrap min css -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-	<link href="../images/aggis.ico" rel="icon">
+	<link href="../../images/aggis.ico" rel="icon">
 	<style>
 	body {font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif"}
 	h2 {color:goldenrod;}
-	h3 {color:goldenrod;}
-	h4 {color:goldenrod;}
-	
-	/* Custom responsive width for the right content */
-	@media (min-width: 768px) {
-		.w-md-45 {
-			width: 40% !important;
-		}
-	}
-	
-	/* Limit image width based on screen size */
-	.profile-image {
-		max-width: 60%; /* Smaller on mobile */
-		margin: 0 auto;
-	}
-	
-	@media (min-width: 768px) {
-		.profile-image {
-			max-width: 80%; /* Larger on desktop */
-		}
-	}
 	</style>
 </head>
-	
-<!-- Modal for PDF/Image Viewer -->
-<div class="modal fade" id="fileViewerModal" tabindex="-1" aria-labelledby="fileViewerModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="fileViewerModalLabel">File Viewer</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" id="fileViewerContent">
-        <!-- Content will be dynamically inserted here -->
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn btn-primary" id="fileDownloadLink" target="_blank">Open in New Tab</a>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Google Analytics tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFLGQQ89F2"></script>
@@ -72,14 +32,13 @@
 <div class="container" id="header">
 <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
 	<a href="https://aggis.org/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-		<img style="width:75px" src="../images/aggis.png" alt="">
+		<img style="width:75px" src="../../images/aggis.png" alt="">
 		<span class="fs-4" style="padding:5px"><h1>aggis.org</h1></span>
 	</a>
 	<ul class="d-flex align-items-center nav nav-pills">
 		<li class="d-flex align-items-center nav-item"><a href="https://aggis.org" class="nav-link">Home</a></li>
 		<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/maps/" class="nav-link">Maps</a></li>
-		<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/dh/" class="nav-link">GIS and Digital Humanities</a></li>
-		<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/about/" class="nav-link active" aria-current="page">About Me</a></li>
+		<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/writing/" class="nav-link active" aria-current="page">Writing</a></li>
 	</ul>
 </header>
 </div>	
@@ -88,39 +47,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h2>About Me</h2><br>
-				<strong>Aaron Goodman</strong>←<i>Geographic Information System</i><br><br>
-				
-				<!-- Right side content: links and image -->
-				<div class="float-md-end text-center text-md-start ms-0 ms-md-3 mb-3 w-100 w-md-45">
-					<!-- Links section with centered buttons -->
-					<div id="links" class="d-flex justify-content-center flex-wrap mb-3 mt-3">
-						<a href="../files/resume.pdf" class="btn btn-success m-1">
-							<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../images/memo.png">
-							Resume
-						</a>
-						<a href="mailto:aaron@aggis.org" class="btn btn-success m-1">
-							<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../images/envelope_with_arrow.png">
-							Email me!
-						</a>
-						<a href="https://gitlab.com/aaronggoodman/" class="btn btn-success m-1">
-							<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../images/gitlab.png">
-							GitLab
-						</a>
-						<a href="https://github.com/leependu/" class="btn btn-success m-1">
-							<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../images/github.png">
-							GitHub
-						</a>
-						<a href="https://linkedin.com/in/aaronglenngoodman/" class="btn btn-success m-1">
-							<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../images/linkedin.png">
-							LinkedIn
-						</a>
-					</div>
-					<!-- Image with proper styling -->
-					<img class="img-fluid rounded mx-auto d-block profile-image" src="../images/aaron.jpg" alt="Aaron Goodman">
-				</div>
-				
-				<!-- Text content that will wrap around the image -->
+				<h2>verbose 'About Me' page</h2>
+				<img style="display:block; margin:auto; width:50%" src="../../images/twinpeaks.jpeg" alt=""><br>
+				<strong>Aaron Goodman</strong>←<i>Geographic Information System</i><br>
 				<p>The trajectory of my life has been shaped in no small part by my relationship with computers. Growing up on the internet and spending my free time in open-world role-playing games, I've long understood that our world(s) can be represented with an arbitrary coordinate system and a library of associated names and attributes. I was not a GIS user as a kid, but I loved maps, because maps can communicate information that is otherwise too complicated to share verbally—information about land, people, and life.</p>
 				<p>In undergrad, I changed majors a couple times before settling into Anthropology and Ethnomusicology. I didn't take any GIS classes in undergrad, but my studies nonetheless fostered a passion to learn about the diversity of human life, to question inherited structures and assumptions, and ultimately to try and make sense of culture's relation to space. My senior thesis in Ethnomusicology, titled "Music Festival Participation and Memory as a Work of Art: Embodying Community Encounters and Problematizing Application of the Carnivalesque" (2021), explored the sensational and participatory nature of rock and roll music festivals.</p>
 				<p>After several months of post-grad unemployment, I enrolled in Esri's free Cartography MOOC (Massive Open Online Course), because I was eager to learn how to make maps with GIS. I found ArcGIS Pro to be intuitive and fun to use, so before the end of the MOOC, I had already set my sights on UCLA Extension's GIS and Geospatial Technology Certificate.</p>
@@ -144,63 +73,7 @@
 		</div>
 	</div>
 	</div>
-</footer>	
-
-<!-- File Viewer Script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Get all links to PDF or image files
-  const fileLinks = document.querySelectorAll('a[href$=".pdf"], a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"]');
-  
-  // Add click event listeners to these links
-  fileLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      // Prevent default navigation
-      e.preventDefault();
-      
-      // Get the file URL and type
-      const fileUrl = this.getAttribute('href');
-      const fileTitle = this.querySelector('.card-text')?.textContent || 'Resume';
-      const isPdf = fileUrl.toLowerCase().endsWith('.pdf');
-      
-      // Update modal title
-      document.getElementById('fileViewerModalLabel').textContent = fileTitle;
-      
-      // Update download link
-      const downloadLink = document.getElementById('fileDownloadLink');
-      downloadLink.href = fileUrl;
-      
-      // Clear previous content
-      const contentContainer = document.getElementById('fileViewerContent');
-      contentContainer.innerHTML = '';
-      
-      // Add appropriate viewer based on file type
-      if (isPdf) {
-        // For PDFs, use an object tag
-        const obj = document.createElement('object');
-        obj.setAttribute('data', fileUrl);
-        obj.setAttribute('type', 'application/pdf');
-        obj.setAttribute('width', '100%');
-        obj.setAttribute('height', '600px');
-        obj.innerHTML = `<p>Your browser doesn't support PDF viewing. <a href="${fileUrl}" target="_blank">Click here to download</a>.</p>`;
-        contentContainer.appendChild(obj);
-      } else {
-        // For images, use an img tag
-        const img = document.createElement('img');
-        img.src = fileUrl;
-        img.style.maxWidth = '100%';
-        img.style.height = 'auto';
-        img.alt = fileTitle;
-        contentContainer.appendChild(img);
-      }
-      
-      // Show the modal
-      const modal = new bootstrap.Modal(document.getElementById('fileViewerModal'));
-      modal.show();
-    });
-  });
-});
-</script>
+</footer>
 
 </body>
 
