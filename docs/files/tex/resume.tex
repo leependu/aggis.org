@@ -5,9 +5,12 @@
 % License : MIT
 %------------------------
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,10pt]{article}
 
 \usepackage[T1]{fontenc}
+\usepackage{cascadia-code}
+\renewcommand{\familydefault}{\ttdefault}
+\frenchspacing
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
@@ -20,19 +23,6 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \input{glyphtounicode}
-
-
-%----------FONT OPTIONS----------
-% sans-serif
-% \usepackage[sfdefault]{FiraSans}
-% \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
-
-% serif
-% \usepackage{CormorantGaramond}
-% \usepackage{charter}
-
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
@@ -55,8 +45,8 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+  \vspace{-4pt}\raggedright\large\bfseries
+}{}{0em}{\MakeUppercase}[\color{black}\titlerule \vspace{-5pt}]
 
 % Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
@@ -96,7 +86,7 @@
 % Non-bulleted small-caps group label inside an item list
 % (used for the sub-sections within a single job entry)
 \newcommand{\resumeItemGroup}[1]{
-  \item[]\small\textbf{\scshape #1}\vspace{-2pt}
+  \item[]\small\textbf{#1}\vspace{-2pt}
 }
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
@@ -114,7 +104,7 @@
 
 %----------HEADING----------
 \begin{center}
-    \textbf{\Huge \scshape Aaron Goodman} \\ \vspace{1pt}
+    \textbf{\Huge Aaron Goodman} \\ \vspace{1pt}
     \small \href{https://aggis.org}{\underline{aggis.org}} $|$
     \href{mailto:aaron@aggis.org}{\underline{aaron@aggis.org}}
 \end{center}
@@ -152,7 +142,7 @@
 
     \resumeSubheading
       {UCSB Library, Special Research Collections}{}
-      {Audio Digitization Technician}{[12/2022 -- 09/2023] [02/2024 -- 03/2025] 11/2025 -- present}
+      {Audio Digitization Technician}{[12/2022--09/2023] [02/2024--03/2025] 11/2025--present}
       \resumeItemListStart
         \resumeItemGroup{Project Contributions}
         \resumeItem{Controlling traffic of 78rpm discs for the Discography of American Historical Recordings under funding from the National Endowment for the Humanities (\$349,721: 3 years)}
