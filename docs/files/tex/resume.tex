@@ -1,0 +1,185 @@
+%-------------------------
+% Resume in LaTeX — Aaron Goodman
+% Template author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{cascadia-code}
+\renewcommand{\familydefault}{\ttdefault}
+\frenchspacing
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\raggedright\large\bfseries
+}{}{0em}{\MakeUppercase}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+% Non-bulleted small-caps group label inside an item list
+% (used for the sub-sections within a single job entry)
+\newcommand{\resumeItemGroup}[1]{
+  \item[]\small\textbf{#1}\vspace{-2pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge Aaron Goodman} \\ \vspace{1pt}
+    \small \href{https://aggis.org}{\underline{aggis.org}} $|$
+    \href{mailto:aaron@aggis.org}{\underline{aaron@aggis.org}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of California, Los Angeles}{2025}
+      {Master of Applied Geospatial Information Systems and Technologies}{}
+    \resumeSubSubheading
+      {Graduate Certificate in Digital Humanities}{}
+    \resumeSubheading
+      {UCLA Extension}{2023}
+      {GIS and Geospatial Technology Certificate}{}
+    \resumeSubheading
+      {University of California, Los Angeles}{2021}
+      {Bachelor of Arts in Ethnomusicology}{}
+    \resumeSubSubheading
+      {Bachelor of Arts in Anthropology}{}
+  \resumeSubHeadingListEnd
+
+
+%-----------WORK EXPERIENCE-----------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Ganna Walska Lotusland}{05/2026 -- present}
+      {Library and Archival Collections Volunteer}{}
+      \resumeItemListStart
+        \resumeItem{Contributing to collections cataloging efforts, including completing a folder-level inventory of Lotusland's non-living / cultural and historical collections with Catalogit}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {UCSB Library, Special Research Collections}{}
+      {Audio Digitization Technician}{[12/2022--09/2023] [02/2024--03/2025] 11/2025--present}
+      \resumeItemListStart
+        \resumeItemGroup{Project Contributions}
+        \resumeItem{Controlling traffic of 78rpm discs for the Discography of American Historical Recordings under funding from the National Endowment for the Humanities (\$349,721: 3 years)}
+        \resumeItem{Keeping phases of DAHR's discographic documentation and digitization workflows ``in step''}
+        \resumeItem{Publishing new audio content to the project website: \href{https://adp.library.ucsb.edu}{\underline{adp.library.ucsb.edu}}}
+        \resumeItem{Processing materials for patron requests or specific DAHR publications, including partnership with Dust-to-Digital \href{https://news.ucsb.edu/2025/022193/vast-collection-historic-american-music-released-ucsb-library-partnership-dust-digital}{\underline{news.ucsb.edu/2025/022193/vast-collection...}}}
+        \resumeItem{Created an item-level inventory for the Leon \& Googie Ren\'e papers: nearly one-thousand early rhythm-and-blues master recordings}
+        \resumeItem{Digitized and created an inventory for the John Steinbeck SoundScriber Discs papers \href{https://oac.cdlib.org/findaid/ark:/13030/kt4489q2nz}{\underline{oac.cdlib.org/findaid/ark:/13030/kt4489q2nz}}}
+        \resumeItemGroup{Audiovisual Archival Experience}
+        \resumeItem{Familiarity with metadata standards used by UCSB Library SRC for digitized content across several collections and formats (use of controlled vocabularies, EAD submission to Online Archive of California)}
+        \resumeItem{Translating metadata from one standard to another with Python/ODBC scripting (e.g. creating MARC catalog records from FileMaker Pro databases)}
+        \resumeItem{Transferring grooved and magnetic media to digital formats}
+        \resumeItem{Managing digital assets created ``in-house'', or ingesting foreign assets and metadata}
+        \resumeItem{Developing Python scripts which use ffmpeg and ODBC to process audio files, images, and metadata into Submission Information Packages before pushing to project repositories}
+        \resumeItemGroup{Supervisory Responsibilities}
+        \resumeItem{Supervising student assistants in the Henri Temianka Audio Preservation Lab, Special Research Collections conservation lab and stacks}
+        \resumeItem{Creating and refining documentation for file management, batch processing, and metadata remediation workflows}
+        \resumeItem{Creating and refining documentation for physical handling and digitization procedures of audio materials, especially grooved media (wax cylinders, shellac and vinyl records)}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------COMPUTER SKILLS-----------
+\section{Computer Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Office}{: OpenRefine, FileMaker Pro, Microsoft Office, Google Workspace, LibreOffice} \\
+     \textbf{Code Languages}{: Unix and pwsh/cmd CLI, Python, ODBC, SQL, JavaScript, HTML/CSS, R} \\
+     \textbf{\hspace{0.15in}Specialties}{: scripting/batch processing, data parsing/transformation/visualization, APIs} \\
+     \textbf{Geospatial Data Analysis}{: PostgreSQL/PostGIS, RStudio, Google Earth Engine, GeoDa} \\
+     \textbf{Desktop GIS}{: ArcGIS Pro \& QGIS, porting to Adobe for refined cartography or animation} \\
+     \textbf{Adobe CC}{: Dreamweaver, Photoshop, Premier, Illustrator, Bridge} \\
+     \textbf{D.A.W.}{: Logic Pro, Audacity, Renoise, Steinberg Cubase \& Wavelab, ffmpeg}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}

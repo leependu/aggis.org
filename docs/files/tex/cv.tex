@@ -1,0 +1,249 @@
+%-------------------------
+% CV in LaTeX — Aaron Glenn Goodman
+% Template author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+%-------------------------
+% uncomment if you want monospace like resume.tex
+%
+% \usepackage{cascadia-code}
+% \renewcommand{\familydefault}{\ttdefault}
+% \frenchspacing
+%
+%-------------------------
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\raggedright\large\bfseries
+}{}{0em}{\MakeUppercase}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+% Degree line: bold degree/institution left, year right, no italic sub-line
+\newcommand{\cvDegree}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+% Parenthetical note beneath a degree line (thesis, expansion of an acronym)
+\newcommand{\cvDegreeNote}[1]{
+  \item[]\textit{\small#1}\vspace{-4pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge Aaron Glenn Goodman} \\ \vspace{1pt}
+    \textit{\small c.v.} \\ \vspace{1pt}
+    \small \href{https://aggis.org}{\underline{aggis.org}} $|$
+    \href{mailto:aaron@aggis.org}{\underline{aaron@aggis.org}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \cvDegree{M.A.G.I.S.T., University of California, Los Angeles}{2025}
+    \cvDegreeNote{( Master of Applied Geospatial Information Systems and Technologies )}
+    \cvDegree{Graduate Certificate in Digital Humanities, University of California, Los Angeles}{2025}
+    \cvDegree{GIS and Geospatial Technology Certificate, UCLA Extension}{2023}
+    \cvDegree{B.A., Ethnomusicology, University of California, Los Angeles}{2021}
+    \cvDegreeNote{( Senior Thesis directed by Dr. Timothy Taylor: Music Festival Participation and Memory as a Work of Art: Embodying Community Encounters and Problematizing Application of the Carnivalesque )}
+    \cvDegree{B.A., Anthropology, University of California, Los Angeles}{2021}
+  \resumeSubHeadingListEnd
+
+
+%-----------RESEARCH PAPERS-----------
+\section{Research Papers}
+  \resumeSubHeadingListStart
+    \resumeItem{\textit{Music Festival Participation and Memory as a Work of Art: Embodying Community Encounters and Problematizing Application of the Carnivalesque} (Spring 2021, Senior Thesis directed by Timothy Taylor)}
+    \resumeItem{``\,`The Festival as the Work of Art': Expanding Gadamer's Comparison of the Shared Temporality of Festival and the Work of Art'' (Winter 2021, final for ETHNMUS C178)}
+  \resumeSubHeadingListEnd
+
+
+%-----------PROFESSIONAL EXPERIENCE-----------
+\section{Professional Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {UCSB Library, Special Research Collections}{2022 -- Present}
+      {Audio Digitization Technician}{}
+      \resumeItemListStart
+        \resumeItem{Supervising the Henri Temianka Audio Preservation Lab and controlling traffic of audio materials to be transferred to digital by student assistants, under funding from the National Endowment for the Humanities}
+        \resumeItem{Creating and refining documentation for digitization procedures of audio materials, especially grooved media}
+        \resumeItem{Supervising imaging station where student assistants photograph disc label runoff}
+        \resumeItem{Utilizing Python scripts and ffmpeg to process and organize audio files, metadata, and images before pushing to project repository: \href{https://adp.library.ucsb.edu}{\underline{adp.library.ucsb.edu}}}
+        \resumeItem{see ``\textbf{Audiovisual Archival Experience}'' and ``\textbf{Media Library Contributions}''}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------FUNDING-----------
+\section{Funding}
+  \resumeSubHeadingListStart
+    \resumeItem{\textit{Audio Digitization Technician}, \textbf{National Endowment for the Humanities -- Preservation and Access: Humanities Collections and Reference Resources}, University of California, Santa Barbara: The American Discography Project / Victor and Bluebird Records Access Initiative (\$349,721), 2020--2023}
+    \resumeItem{\textit{Student}, \textbf{University of California, Los Angeles -- MAGIST True Bruin Scholarship} (\$3,848), 2023}
+    \resumeItem{\textit{[Audio Digitization Technician/Cataloger?]}, \textbf{California Revealed}, University of California, Santa Barbara: [Leon and Googie Ren\'e Rhythm \& Blues Collection] ([62.5ppl*hr]), 2024}
+  \resumeSubHeadingListEnd
+
+
+%-----------MEDIA LIBRARY CONTRIBUTIONS-----------
+\section{Media Library Contributions}
+    \resumeItemListStart
+      \resumeItem{1,200 hours to date dedicated to American Discography Project / Discography of American Historical Recordings digitization initiatives}
+        \begin{itemize}
+          \resumeItem{4,000+ unique sound recordings transferred to digital audio for public access, with considerable focus on Latin American RCA Victor releases; 4,600+ unique side labels photographed}
+        \end{itemize}
+      \resumeItem{62.5 hours dedicated to creating a finding aid for the Leon and Googie Ren\'e Rhythm \& Blues Collection}
+    \resumeItemListEnd
+
+
+%-----------AUDIOVISUAL ARCHIVAL EXPERIENCE-----------
+\section{Audiovisual Archival Experience}
+    \resumeItemListStart
+      \resumeItem{Transferring grooved media to digital audio, especially pre-war sound recordings of the 78rpm era; extensive familiarity with:}
+        \begin{itemize}
+          \resumeItem{evolution of audio technical conventions for attenuation (EQ) curves after the advent of electrical recording in 1925}
+          \resumeItem{proprietary playback technologies including coexistence of lateral and vertical grooved records until the emergence of stereophonic recording mid-century}
+          \resumeItem{best practices for physical preservation of grooved media, especially shellac discs, in addition to wax cylinders, vinyl, and lacquer/acetate discs; familiarity with dominant contemporary solutions for cleaning discs}
+        \end{itemize}
+      \resumeItem{Transferring magnetic media (both audio and video) to digital format, especially audiocassette, open reel tape, and VHS; familiarity with:}
+        \begin{itemize}
+          \resumeItem{broad evolution of magnetic media history and general timeline of adoption of common formats}
+          \resumeItem{best practices for preserving magnetic tape for storage and playback, including ideal climate controlled conditions and baking operations for `sticky-shed' syndrome}
+        \end{itemize}
+      \resumeItem{Processing digitized content with software to be sent to library patrons; familiarity with:}
+        \begin{itemize}
+          \resumeItem{`ffmpeg' and various DAWs and video editors suitable for archive-quality post-processing}
+          \resumeItem{UCSB Library SRC's metadata conventions for digitized content across several collections}
+        \end{itemize}
+    \resumeItemListEnd
+
+
+%-----------GEOSPATIAL EXPERTISE-----------
+\section{Geospatial Expertise}
+    \resumeItemListStart
+      \resumeItem{Social and economic demographic survey data analysis}
+      \resumeItem{Election statistics analysis: visualization, LISA with GeoDa}
+      \resumeItem{Data visualization for survey data}
+      \resumeItem{Cartographic design, especially for story-centered projects: ArcGIS StoryMaps, Leaflet, D3, Storymaps.js}
+    \resumeItemListEnd
+
+
+%-----------RESEARCH INTERESTS-----------
+\section{Research Interests}
+    \resumeItemListStart
+      \resumeItem{History of popular recorded music and development of genre-specific ethos and aesthetics}
+      \resumeItem{Formal, musical, and lyrical analysis of historical recordings and cross-reference with contemporary print and artistic materials}
+      \resumeItem{History of major sound recording institutions and geographical development of early music industries globally: studios, broadcast stations, executive offices, venues, vendors}
+      \resumeItem{History of reference mapping/GPS/navigation technology for use by everyday people}
+    \resumeItemListEnd
+
+
+%-----------LANGUAGES-----------
+\section{Languages}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     English (native); Spanish (3 years of high school and university study; spoken with family during critical language development)
+    }}
+ \end{itemize}
+
+
+%-----------COMPUTER SKILLS-----------
+\section{Computer Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Desktop GIS}{: ArcGIS Pro, QGIS; porting to Adobe for refined cartography or animation} \\
+     \textbf{Geospatial Data Analysis}{: GeoDa, PostgreSQL / PostGIS} \\
+     \textbf{Coding Languages}{: SQL; Python 3 (geopandas); HTML, CSS, JavaScript (Leaflet)} \\
+     \textbf{D.A.W.}{: Logic Pro X, Audacity, Renoise, Steinberg Wavelab Pro 11; ffmpeg} \\
+     \textbf{Adobe CC}{: Photoshop, Premier, Dreamweaver, Illustrator} \\
+     \textbf{Office}{: Microsoft Office; Google Office Suite; LibreOffice; FileMaker Pro; openrefine}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
