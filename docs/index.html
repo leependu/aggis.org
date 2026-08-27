@@ -12,6 +12,24 @@
 	<style>
 	body {font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif"}
 	h2 {color:goldenrod;}
+	.video-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	/* Profile image: centered + narrower on mobile, full column width on md+ */
+	.profile-image {
+		display: block;
+		max-width: 75%;
+		margin: 0 auto;
+	}
+
+	@media (min-width: 768px) {
+		.profile-image {
+			max-width: 100%;
+			margin: 0;
+		}
+	}
 	</style>
 </head>
 	
@@ -31,35 +49,84 @@
 <!-- actual body -->
 <div class="container" id="header">
 <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-	<a href="https://aggis.org/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+	<a href="https://aggis.org/" class="d-flex align-items-center mb-3 mb-md-0 link-body-emphasis text-decoration-none">
 		<img style="width:75px" src="images/aggis.png" alt="">
 		<span class="fs-4" style="padding:5px"><h1>aggis.org</h1></span>
 	</a>
-	<ul class="d-flex align-items-center nav nav-pills">
+	<ul class="d-flex align-items-center nav nav-pills mx-auto">
 		<li class="d-flex align-items-center nav-item"><a href="https://aggis.org" class="nav-link active" aria-current="page">Home</a></li>
 		<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/maps/" class="nav-link">Maps</a></li>
-		<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/dh/" class="nav-link">GIS and Digital Humanities</a></li>
-		<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/about/" class="nav-link">About Me</a></li>
+		<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/writing/" class="nav-link">Writing</a></li>
 	</ul>
+	<div id="links" class="d-flex justify-content-center flex-wrap mb-3 mt-3">
+		<a href="https://gitlab.com/aaronggoodman/" class="btn btn-success m-1">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="images/gitlab.png">
+			GitLab
+		</a>
+		<a href="https://github.com/leependu/" class="btn btn-success m-1">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="images/github.png">
+			GitHub
+		</a>
+		<a href="https://linkedin.com/in/aaronglenngoodman/" class="btn btn-success m-1">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="images/linkedin.png">
+			LinkedIn
+		</a>
+	</div>
 </header>
 </div>	
 	
 <main>
 	<div class="container">
-	<div class="row">
-		<div class="col">
-			<h2>Welcome to aggis.org!</h2><br>
-			Welcome and thank you for visiting my cartography portfolio. I'm Aaron Goodman, a GIS specialist and map enthusiast with parallel passions for music history and fantasy world-building. While this website primarily catalogs the development of my GIS technical skills, I have increasingly found ways to apply this skill set to the examination of humanistic questions in fields familiar and unfamiliar to me.
-			<br><br>
-			Having majored in ethnomusicology and anthropology for my undergraduate studies, it has been exciting and strange to learn new ways to visualize data which relate to objects or processes that are not truly reducible to “data”. Nonetheless, because visualizations play such a supportive role in the classroom and beyond, I think it is essential that humanists have a critical hand in refining real life and human history into data to be displayed on a map.
-			<br><br>
-			The topics covered in my maps vary widely; some were submitted as school assignments, and others were completed just for fun. As I’m wrapping up my master’s degree, I am eager to experiment more with “Time Series” or animated maps as a tool for visualizing historical trends. Especially as I consider library school in the future, I heed the potential of GIS to provide powerful, additive pedagogical tools for the study of human history at all grade levels.
-			<br><br>
-			<img style="display:block; margin:auto; width:100%" src="images/twinpeaks.jpeg" alt="">
-			<br>
+		<div class="row g-4 align-items-start">
+
+			<!-- Image column: full width on mobile (on top), left column on md+ -->
+			<div class="col-12 col-md-5 col-lg-4">
+				<img class="img-fluid rounded profile-image" src="images/aaron.jpg" alt="Aaron Goodman">
+			</div>
+
+			<!-- Text column: below image on mobile, right of it on md+ -->
+			<div class="col-12 col-md-7 col-lg-8">
+				<strong>Aaron Goodman</strong>←<i>Geographic Information System</i><br><br>
+				<p>Thanks for visiting my website. This site began as a GIS portfolio and now serves as the face of my professional life. I am most trained in GIS tools, but I have been grateful for opportunities to apply these skills in diverse contexts.</p>
+				<p>My graduate coursework in Digital Humanities has further informed my approach to GIS and cartography and, along with work experience in a special collections library, has illuminated the value of integrating these disciplines.</p>
+				<p>My skillset includes:</p>
+				<ul>
+					<li>cartography</li>
+					<li>data analysis and visualization</li>
+					<li>web mapping</li>
+					<li>relational database management</li>
+					<li>batch processing and automation</li>
+					<li>archival processing and description</li>
+					<li>digital asset management</li>
+				</ul>
+				<br>
+				<div class="d-flex justify-content-center justify-content-md-start flex-wrap mb-3 mt-3">
+					<a href="mailto:aaron@aggis.org" class="btn btn-success m-1">
+						<img style="vertical-align:text-top;margin-right:4px;width:16px" src="images/envelope_with_arrow.png">
+						Email me!
+					</a>
+					<a href="../files/resume.pdf" class="btn btn-success m-1">
+						<img style="vertical-align:text-top;margin-right:4px;width:16px" src="images/memo.png">
+						Resume
+					</a>
+				</div>
+			</div>
+
 		</div>
 	</div>
-	</div>		
+	<!-- <div class="video-container">
+		<video autoplay loop muted playsinline preload="auto" width="480">
+		<source src="video/pacificSurfliner.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+		</video>
+	</div> -->
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<br>
+			</div>
+		</div>
+	</div>
 </main>
 	
 <footer>
@@ -67,7 +134,7 @@
 	<div class="row">
 		<div class="col">
 			<hr/>
-			<p class="footer">Web design by me (Aaron Goodman)</p>
+			<p class="footer">Source: <a href="https://github.com/leependu/aggis.org.git">github.com/leependu/aggis.org.git</a></p>
 		</div>
 	</div>
 	</div>
