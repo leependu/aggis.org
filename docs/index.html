@@ -17,6 +17,24 @@
 		justify-content: center;
 		align-items: center;
 	}
+	/* Custom responsive width for the right content */
+	@media (min-width: 768px) {
+		.w-md-45 {
+			width: 50% !important;
+		}
+	}
+	
+	/* Limit image width based on screen size */
+	.profile-image {
+		max-width: 75%; /* Smaller on mobile */
+		margin: 0 auto;
+	}
+	
+	@media (min-width: 768px) {
+		.profile-image {
+			max-width: 90%; /* Larger on desktop */
+		}
+	}
 	</style>
 </head>
 	
@@ -45,21 +63,76 @@
 		<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/maps/" class="nav-link">Maps</a></li>
 		<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/writing/" class="nav-link">Writing</a></li>
 	</ul>
+	<div id="links" class="d-flex justify-content-center flex-wrap mb-3 mt-3">
+		<a href="https://gitlab.com/aaronggoodman/" class="btn btn-success m-1">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="images/gitlab.png">
+			GitLab
+		</a>
+		<a href="https://github.com/leependu/" class="btn btn-success m-1">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="images/github.png">
+			GitHub
+		</a>
+		<a href="https://linkedin.com/in/aaronglenngoodman/" class="btn btn-success m-1">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="images/linkedin.png">
+			LinkedIn
+		</a>
+	</div>
 </header>
 </div>	
 	
 <main>
-	<div class="video-container">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<strong>Aaron Goodman</strong>←<i>Geographic Information System</i><br><br>
+				<p>Thanks for visiting my website. This site began as a GIS portfolio and now serves as the face of my professional life. I am most trained in GIS tools, but I have been grateful for opportunities to apply these skills in diverse contexts.</p>
+				<p>My graduate coursework in Digital Humanities has further informed my approach to GIS and cartography and, along with work experience in a special collections library, has illuminated the value of integrating these disciplines.</p>
+				<p>My skillset includes:</p>
+				<ul>
+					<li>cartography</li>
+					<li>data analysis and visualization</li>
+					<li>web mapping</li>
+					<li>relational database management</li>
+					<li>batch processing and automation</li>
+					<li>archival processing and description</li>
+					<li>digital asset management</li>
+				</ul>
+				<div id="links" class="d-flex justify-content-center flex-wrap mb-3 mt-3">
+					<a href="mailto:aaron@aggis.org" class="btn btn-success m-1">
+						<img style="vertical-align:text-top;margin-right:4px;width:16px" src="images/envelope_with_arrow.png">
+						Email me!
+					</a>
+					<a href="../files/resume.pdf" class="btn btn-success m-1">
+						<img style="vertical-align:text-top;margin-right:4px;width:16px" src="images/memo.png">
+						Resume
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="float-md-end text-center text-md-start ms-0 ms-md-3 mb-3 w-100 w-md-45">
+
+					<!-- Image with proper styling -->
+					<img class="img-fluid rounded mx-auto d-block profile-image" src="images/aaron.jpg" alt="Aaron Goodman">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="video-container">
 		<video autoplay loop muted playsinline preload="auto" width="480">
 		<source src="video/pacificSurfliner.mp4" type="video/mp4">
 		Your browser does not support the video tag.
 		</video>
-	</div>
+	</div> -->
 	<div class="container">
-	<div class="row">
-		<div class="col">
+		<div class="row">
+			<div class="col">
+				<br>
+			</div>
 		</div>
-	</div>
 	</div>
 </main>
 	
