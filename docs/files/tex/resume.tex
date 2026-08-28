@@ -45,7 +45,7 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\raggedright\large\bfseries
+  \vspace{-7pt}\raggedright\large\bfseries
 }{}{0em}{\MakeUppercase}[\color{black}\titlerule \vspace{-5pt}]
 
 % Ensure that generate pdf is machine readable/ATS parsable
@@ -53,48 +53,80 @@
 
 %-------------------------
 % Custom commands
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
-}
 
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
+%---- VERTICAL RHYTHM KNOBS ----------------------------------------
+% All spacing is driven by these five lengths. Nudge these instead of
+% sprinkling \vspace{-Npt} around the document; everything stays even.
+\newlength{\entrygap}   \setlength{\entrygap}{2pt}   % between entries (a job, a school)
+\newlength{\contgap}    \setlength{\contgap}{-5pt}   % above a continuation line of the entry above
+\newlength{\contgapend} \setlength{\contgapend}{-8pt} % below one (see \resumeSubSubheading)
+\newlength{\listendgap} \setlength{\listendgap}{-4pt}  % correction when a list ENDS on one
+\newlength{\groupgap}   \setlength{\groupgap}{4pt}   % above a bold group label inside an entry
+\newlength{\bulletgap}  \setlength{\bulletgap}{0pt}  % between bullets
+\newlength{\groupindent}\setlength{\groupindent}{0.15in} % how far group labels sit left of the bullets
+%--------------------------------------------------------------------
+
+\newcommand{\resumeItem}[1]{\item \small{#1}}
+
+% Entry heading: {title}{right-hand note}{subtitle}{right-hand note}
+\newcommand{\resumeSubheading}[4]{%
+  \resumecontfalse
+  \vspace{\entrygap}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}%
 }
 
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+% A continuation line belonging to the entry directly above (a second degree,
+% a second title) — hugs the block it extends. Its 1-row table sits shallower
+% than \resumeSubheading's 2-row one, so \contgapend evens out what follows.
+% \ifresumecont records whether the list ended on one of these, so \contgapend
+% isn't stolen from the following section heading's breathing room.
+\newif\ifresumecont \resumecontfalse
+\newcommand{\resumeSubSubheading}[2]{%
+  \resumeconttrue
+  \vspace{\contgap}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{\contgapend}%
 }
 
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+\newcommand{\resumeProjectHeading}[2]{%
+  \vspace{\entrygap}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}%
 }
 
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}}
 
-% Non-bulleted small-caps group label inside an item list
-% (used for the sub-sections within a single job entry)
-\newcommand{\resumeItemGroup}[1]{
-  \item[]\small\textbf{#1}\vspace{-2pt}
+% Bold, un-bulleted label that divides one entry into named groups.
+% Outdented to the entry's own left edge so it reads as a heading
+% rather than as another bullet.
+\newcommand{\resumeItemGroup}[1]{%
+  \vspace{\groupgap}\item[]\hspace*{-\groupindent}\small\textbf{#1}%
 }
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+% Outer list: one \item per entry, no bullet.
+\newcommand{\resumeSubHeadingListStart}{%
+  \begin{itemize}[leftmargin=0.15in, label={},
+                  itemsep=0pt, parsep=0pt, topsep=2pt, partopsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\ifresumecont\vspace{\listendgap}\fi\end{itemize}}
+
+% Bullets within an entry.
+\newcommand{\resumeItemListStart}{%
+  \begin{itemize}[leftmargin=\groupindent, itemsep=\bulletgap,
+                  parsep=0pt, topsep=2pt, partopsep=0pt]}
+\newcommand{\resumeItemListEnd}{\resumecontfalse\end{itemize}}
+
+% Nested bullets — a list hanging off the bullet above it.
+\newcommand{\resumeSubItemListStart}{%
+  \begin{itemize}[leftmargin=0.28in, label={\textendash}, itemsep=0pt,
+                  parsep=0pt, topsep=1pt, partopsep=0pt]}
+\newcommand{\resumeSubItemListEnd}{\end{itemize}}
 
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -144,12 +176,14 @@
         \resumeItemGroup{Project Contributions}
         \resumeItem{\small Controlling traffic of 78rpm discs en route to digitization lab for the Discography of American Historical Recordings (DAHR) {\scriptsize \href{https://adp.library.ucsb.edu}{\underline{adp.library.ucsb.edu}}}}
         \resumeItem{\small Keeping phases of DAHR's discographic documentation and digitization workflows ``in step''}
-        \resumeItem{\small Ingesting assets for post-custodial partnerships like with Dust-to-Digital {\scriptsize \href{https://news.ucsb.edu/2025/022193/vast-collection-historic-american-music-released-ucsb-library-partnership-dust-digital}{\underline{news.ucsb.edu/2025/022193/vast-collection...}}}}
+        \resumeItem{\small Ingesting assets for post-custodial partnerships like with Dust-to-Digital {\scriptsize \href{https://news.ucsb.edu/2025/022193/vast-collection-historic-american-music-released-ucsb-library-partnership-dust-digital}{\underline{news.ucsb.edu/2025/022193...}}}}
         \resumeItem{\small Digitizing and creating item-level inventories for audiovisual materials in performing arts collections (various formats):}
-        \resumeItem{\small John Steinbeck SoundScriber Discs {\scriptsize \href{https://oac.cdlib.org/findaid/ark:/13030/kt4489q2nz}{\underline{oac.cdlib.org/findaid/ark:/13030/kt4489q2nz}}; \href{https://ucsblibrarysrc.aviaryplatform.com/collections/3890}{\underline{ucsblibrarysrc.aviaryplatform.com/collections/3890}}}}
-        \resumeItem{\small Leon \& Googie Ren\'e recordings {\scriptsize \href{https://oac.cdlib.org/findaid/ark:/13030/c8qj7rnt}{\underline{oac.cdlib.org/findaid/ark:/13030/c8qj7rnt}}}}
-        \resumeItem{\small Eula Beal recordings {\scriptsize \href{https://oac.cdlib.org/findaid/ark:/13030/c8bz6f4q}{\underline{oac.cdlib.org/findaid/ark:/13030/c8bz6f4q}}}}
-        \resumeItem{\small Dame Judith Anderson papers, Series XII, Audio Recordings {\scriptsize \href{https://oac.cdlib.org/findaid/ark:/13030/tf8x0nb6v0}{\underline{oac.cdlib.org/findaid/ark:/13030/tf8x0nb6v0}}}}
+        \resumeSubItemListStart
+            \resumeItem{\small John Steinbeck SoundScriber Discs {\scriptsize \href{https://oac.cdlib.org/findaid/ark:/13030/kt4489q2nz}{\underline{oac.cdlib.org/.../kt4489q2nz}}, \href{https://ucsblibrarysrc.aviaryplatform.com/collections/3890}{\underline{aviaryplatform.com/collections/3890}}}}
+            \resumeItem{\small Leon \& Googie Ren\'e recordings {\scriptsize \href{https://oac.cdlib.org/findaid/ark:/13030/c8qj7rnt}{\underline{oac.cdlib.org/.../c8qj7rnt}}}}
+            \resumeItem{\small Eula Beal recordings {\scriptsize \href{https://oac.cdlib.org/findaid/ark:/13030/c8bz6f4q}{\underline{oac.cdlib.org/.../c8bz6f4q}}}}
+            \resumeItem{\small Dame Judith Anderson papers, Series XII, Audio Recordings {\scriptsize \href{https://oac.cdlib.org/findaid/ark:/13030/tf8x0nb6v0}{\underline{oac.cdlib.org/.../tf8x0nb6v0}}}}
+        \resumeSubItemListEnd
         \resumeItemGroup{Audiovisual Archival Experience}
         \resumeItem{\small Using controlled vocabularies and creating metadata for EAD submission to Online Archive of California}
         \resumeItem{\small Transferring grooved and magnetic media to digital formats}
@@ -160,7 +194,7 @@
         \resumeItem{\small Staging and publishing assets and metadata to digital repositories}
         \resumeItemGroup{Supervisory Responsibilities}
         \resumeItem{\small Supervising student assistants in the Henri Temianka Audio Preservation Lab, Special Research Collections conservation lab and stacks}
-        \resumeItem{\small Updating documentation for digital asset management and batch processing workflows, including for {\small \href{https://gitlab.com/ucsb-lib/src-avlab-microservices.git}{\underline{src-avlab-microservices.git}}}}
+        \resumeItem{\small Updating documentation for digital asset management and batch processing workflows}
         \resumeItem{\small Refining documentation for physical handling and digitization procedures of audio materials, especially grooved media (wax cylinders, shellac, vinyl, and lacquer recordings)}
       \resumeItemListEnd
 
