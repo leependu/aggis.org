@@ -62,7 +62,7 @@
 
 %---- VERTICAL RHYTHM KNOBS ----------------------------------------
 % Same knobs as resume.tex so the two documents share a rhythm.
-\newlength{\entrygap}   \setlength{\entrygap}{2pt}   % between entries (a job, a school)
+\newlength{\entrygap}   \setlength{\entrygap}{1pt}   % between entries (a job, a school)
 \newlength{\contgap}    \setlength{\contgap}{-5pt}   % above a continuation line of the entry above
 \newlength{\contgapend} \setlength{\contgapend}{-8pt} % below one (see \resumeSubSubheading)
 \newlength{\listendgap} \setlength{\listendgap}{-4pt}  % correction when a list ENDS on one
@@ -110,9 +110,18 @@
     \end{tabular*}%
 }
 
-% Italic note beneath a degree line (thesis, expansion of an acronym)
+% Note beneath a degree line (thesis, capstone, expansion of an acronym).
+% Set roman and flush with the degree title above it; the actual TITLE of a
+% paper or project goes in \textit{} so italics always mean "this is a title."
 \newcommand{\cvDegreeNote}[1]{%
-  \vspace{-2pt}\item[]\hspace*{-\groupindent}\textit{\small#1}%
+  \vspace{-2pt}\item[]{\small#1}%
+}
+
+% Bold small-caps label dividing a section into named groups; sits at the
+% section's left margin so it reads above, not alongside, the entries.
+\newcommand{\cvGroupHeading}[1]{%
+  \resumecontfalse
+  \vspace{\groupgap}\item[]\hspace*{-\groupindent}{\small\bfseries\scshape #1}%
 }
 
 % Bold, un-bulleted label that divides one entry into named groups.
@@ -131,7 +140,7 @@
 % Bullets within an entry.
 \newcommand{\resumeItemListStart}{%
   \begin{itemize}[leftmargin=\groupindent, itemsep=\bulletgap,
-                  parsep=0pt, topsep=2pt, partopsep=0pt]}
+                  parsep=0pt, topsep=1pt, partopsep=0pt]}
 \newcommand{\resumeItemListEnd}{\resumecontfalse\end{itemize}}
 
 % Nested bullets.
@@ -151,8 +160,9 @@
 
 %----------HEADING----------
 \begin{center}
-    \textbf{\Huge Aaron Glenn Goodman} \\ \vspace{1pt}
-    \textit{\small curriculum vitae} \\ \vspace{1pt}
+    \textbf{\huge Aaron Glenn Goodman} \\ \vspace{2pt}
+    \textit{\normalsize curriculum vitae} \\ \vspace{1pt}
+    \scriptsize Santa Barbara, CA $|$
     \small \href{https://aggis.org}{\underline{aggis.org}} $|$
     \small \href{mailto:aaron@aggis.org}{\underline{aaron@aggis.org}} $|$
     \scriptsize \href{https://gitlab.com/aaronggoodman}{\underline{gitlab.com/aaronggoodman}} $|$
@@ -165,13 +175,13 @@
 \section{Education}
   \resumeSubHeadingListStart
     \cvDegree{M.A.G.I.S.T., University of California, Los Angeles}{2025}
-    \cvDegreeNote{( Master of Applied Geospatial Information Systems and Technologies )}
-    \cvDegreeNote{Capstone (GEOG 498/499): applied research and cartographic production for the Tahoe Regional Planning Agency (TRPA)}
+    \cvDegreeNote{(Master of Applied Geospatial Information Systems and Technologies)}
+    \cvDegreeNote{Capstone (GEOG 498/499) -- applied research and cartographic production for the Tahoe Regional Planning Agency (TRPA)}
     \cvDegree{Graduate Certificate in Digital Humanities, University of California, Los Angeles}{2025}
-    \cvDegreeNote{Final paper for DH 250 Critical Cartography (Dr. Nour Joudah): \textit{`Cartographic' Representation, Simulacra, and Representation-Reality Feedback} -- reads early commercial recording expeditions as geographic knowledge production, mapping recording locations and talent birthplaces from the Discography of American Historical Recordings}
+    \cvDegreeNote{Final paper, DH 250 Critical Cartography (Dr. Nour Joudah): \textit{`Cartographic' Representation, Simulacra, and Representation-Reality Feedback} -- reads early commercial recording expeditions as geographic knowledge production, mapping recording locations and talent birthplaces from the Discography of American Historical Recordings}
     \cvDegree{GIS and Geospatial Technology Certificate, UCLA Extension}{2023}
     \cvDegree{B.A., Ethnomusicology, University of California, Los Angeles}{2021}
-    \cvDegreeNote{Senior thesis directed by Dr. Timothy D. Taylor: \textit{Music Festival Participation and Memory as a Work of Art: Embodying Community Encounters and Problematizing Application of the Carnivalesque}}
+    \cvDegreeNote{Senior thesis (Dr. Timothy D. Taylor): \textit{Music Festival Participation and Memory as a Work of Art: Embodying Community Encounters and Problematizing Application of the Carnivalesque}}
     \cvDegree{B.A., Anthropology, University of California, Los Angeles}{2021}
   \resumeSubHeadingListEnd
 
@@ -182,16 +192,16 @@
 
     \resumeSubheading
       {UCSB Library, Special Research Collections}{Santa Barbara, CA}
-      {Audio Digitization Technician}{12/2022 -- 09/2023; 02/2024 -- 03/2025; 11/2025 -- present}
+      {Audio Digitization Technician (recurring grant-funded appointments)}{12/2022 -- 09/2023; 02/2024 -- 03/2025; 11/2025 -- present}
       \resumeItemListStart
         \resumeItemGroup{Discography of American Historical Recordings (DAHR) / American Discography Project}
-        \resumeItem{Control traffic of 78rpm discs from stacks to the Henri Temianka Audio Preservation Lab and back, keeping the discographic documentation and digitization phases of the workflow ``in step'' under National Endowment for the Humanities funding \lnk{https://adp.library.ucsb.edu}{adp.library.ucsb.edu}}
+        \resumeItem{Control traffic of 78rpm discs from stacks to the Henri Temianka Audio Preservation Lab and back, keeping the discographic documentation and digitization phases of the workflow ``in step'' under National Endowment for the Humanities funding}
         \resumeItem{Transfer grooved media to archival digital audio; supervise student assistants transferring discs and photographing disc labels and runoff areas}
         \resumeItem{Process, organize, and quality-check audio files, images, and metadata into Submission Information Packages before staging and publishing to the project repository; contributed 4,000+ unique recordings and 4,600+ label images in the first two appointments alone}
         \resumeItem{Ingest foreign assets and metadata for post-custodial partnerships, e.g., the 2025 Dust-to-Digital release \lnk{https://news.ucsb.edu/2025/022193/vast-collection-historic-american-music-released-ucsb-library-partnership-dust-digital}{news.ucsb.edu/2025/022193}}
         \resumeItem{Assess and reprocess content from older Submission Information Packages as project conventions evolve}
         \resumeItemGroup{Archival Processing and Description}
-        \resumeItem{Digitize and create item-level inventories for audiovisual materials in performing arts collections (see \textbf{Collections Processed}), including format identification and personnel/date research}
+        \resumeItem{Digitize and create item-level inventories for audiovisual materials in performing arts collections (see \textbf{Collections and Digital Projects}), including format identification and personnel/date research}
         \resumeItem{Apply controlled vocabularies and prepare descriptive metadata for EAD finding aids submitted to the Online Archive of California; crosswalk metadata between local and repository standards with FileMaker Pro and Python/ODBC scripting}
         \resumeItem{Stage and publish digitized audio and metadata to public access platforms (Aviary) and internal repositories following UCSB Library SRC metadata conventions}
         \resumeItemGroup{Digital Asset Management and Systems}
@@ -203,18 +213,22 @@
         \resumeItem{Write and refine documentation for physical handling and digitization of grooved media (wax cylinders, shellac, vinyl, lacquer), magnetic media (open reel, audiocassette, VHS), and for batch-processing and ingest workflows used in student training}
       \resumeItemListEnd
 
+    % Deliberate gap !!!
+    \vspace{24pt}
     \resumeSubheading
       {Ganna Walska Lotusland}{Montecito, CA}
       {Library and Archival Collections Volunteer}{05/2026 -- 08/2026}
       \resumeItemListStart
-        \resumeItem{Completed a folder-level inventory of Lotusland's non-living (cultural and historical) collections in CatalogIt in support of collections cataloging efforts}
+        \resumeItem{Completed a folder-level inventory of Lotusland's non-living (cultural and historical) collections in CatalogIt}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
 
-%-----------COLLECTIONS PROCESSED-----------
-\section{Collections Processed}
+%-----------COLLECTIONS AND DIGITAL PROJECTS-----------
+% Forced break so this section is never split across pages 1 and 2
+\newpage
+\section{Collections and Digital Projects}
   \resumeSubHeadingListStart
     \resumeProjectHeading
       {\textbf{Discography of American Historical Recordings} (American Discography Project), UCSB Library SRC}{2022 -- present}
@@ -229,7 +243,7 @@
     \resumeProjectHeading
       {\textbf{John Steinbeck SoundScriber Discs} (Mss 164), UCSB Library SRC}{}
       \resumeItemListStart
-        \resumeItem{SoundScriber dictation discs recorded by John Steinbeck in the 1940s; item-level inventory, audio digitization \lnk{https://oac.cdlib.org/findaid/ark:/13030/kt4489q2nz}{OAC finding aid}; \lnk{https://ucsblibrarysrc.aviaryplatform.com/collections/3890}{Aviary collection}}
+        \resumeItem{Dictation discs recorded by John Steinbeck in the 1940s; item-level inventory, audio digitization \lnk{https://oac.cdlib.org/findaid/ark:/13030/kt4489q2nz}{OAC finding aid}, \lnk{https://ucsblibrarysrc.aviaryplatform.com/collections/3890}{Aviary}}
       \resumeItemListEnd
     \resumeProjectHeading
       {\textbf{Leon and Googie Ren\'e Recordings} (PA Mss 248), UCSB Library SRC}{}
@@ -252,7 +266,7 @@
 %-----------AUDIOVISUAL PRESERVATION EXPERTISE-----------
 \section{Audiovisual Preservation Expertise}
     \resumeItemListStart
-      \resumeItem{\textbf{Grooved media:} transfer of pre-war and 78rpm-era sound recordings; evolution of attenuation (EQ) curves after the advent of electrical recording in 1925; coexistence of lateral- and vertical-cut records before stereophonic recording; physical preservation and cleaning of shellac, wax cylinders, vinyl, and lacquer/acetate discs}
+      \resumeItem{\textbf{Grooved media:} transfer of pre-war and 78rpm-era recordings; evolution of attenuation (EQ) curves after electrical recording arrived in 1925; coexistence of lateral- and vertical-cut records before stereo; physical preservation and cleaning of shellac, wax cylinder, vinyl, and lacquer/acetate discs}
       \resumeItem{\textbf{Magnetic media:} transfer of audiocassette, open reel, and VHS; adoption timeline of common formats; climate-controlled storage and baking for sticky-shed syndrome}
       \resumeItem{\textbf{Post-processing and packaging:} FFmpeg and archive-grade DAWs and video editors; Submission Information Package assembly; preservation and access derivative generation; local metadata conventions across several collections}
       \resumeItem{\textbf{Description:} item-level inventories; controlled vocabularies; EAD finding aids for the Online Archive of California; metadata crosswalking and remediation; workflow documentation for student training}
@@ -260,20 +274,42 @@
 
 
 
-%-----------SELECTED GEOSPATIAL PROJECTS-----------
-\section{Selected Geospatial Projects}
+%-----------GEOSPATIAL PORTFOLIO-----------
+\section{Geospatial Portfolio}
   \resumeSubHeadingListStart
     \resumeItem{Full gallery with maps, reports, web apps, and notebooks at \href{https://aggis.org/maps/}{\underline{aggis.org/maps}} and \href{https://aggis.org/files/notebooks/}{\underline{aggis.org/files/notebooks}}.}
+
+    \cvGroupHeading{Projects and Deliverables}
 
     \resumeProjectHeading
       {\textbf{Tahoe Regional Planning Agency capstone} -- GEOG 498/499, UCLA MAGIST}{2025}
       \resumeItemListStart
-        \resumeItem{Transportation equity study; conifer encroachment analysis; lake water clarity analysis with the Normalized Difference Turbidity Index (ArcGIS Pro)}
+        \resumeItem{Transportation equity study; conifer encroachment analysis; lake water clarity with the Normalized Difference Turbidity Index}
         \resumeItem{Vikingsholm accessibility check: ArcGIS StoryMap proposing expanded parking at Emerald Bay State Park \lnk{https://aggis.org/maps/vikingsholm/}{aggis.org/maps/vikingsholm}}
         \resumeItem{Sea-level-rise animation and inundation risk assessment; operations dashboard; capstone video}
         \resumeItem{TRPA Data Explorer notebook pulling parcels, transit stops, and trail layers from TRPA ArcGIS REST services (Python, geopandas)}
         \resumeItem{Cartographic exercises in Adobe Illustrator: USGS-style topographic map, Tahoe land cover map, TART Mainline bus route map}
       \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{iSTAT Migration History Timeline} -- DH 201, UCLA Digital Humanities}{2024}
+      \resumeItemListStart
+        \resumeItem{Exploratory data visualization of Italian National Institute of Statistics time series (1869--2014), published as an ArcGIS Online time-slider app \lnk{https://aggis.org/maps/istat/}{aggis.org/maps/istat}}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{DAHR Global Recording Explorer} -- ArcGIS Online web app}{2023}
+      \resumeItemListStart
+        \resumeItem{Joined DAHR's matrix and georeferenced place tables to map recording locations for nearly 70,000 78rpm records, with interactive widgets for label, date, and artist exploration; cleaned character-encoding and timestamp edge cases \lnk{https://aggis.org/maps/dahr/}{aggis.org/maps/dahr}}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Cartographic design} -- personal work}{2022 -- present}
+      \resumeItemListStart
+        \resumeItem{Olympic National Park unofficial visitor's map (Adobe Illustrator); Strava-derived bicycle heat maps from harvested GPX routes \lnk{https://aggis.org/maps/bike/}{aggis.org/maps/bike}; speculative sea-level-rise world-building maps \lnk{https://aggis.org/maps/rpg/}{aggis.org/maps/rpg}}
+      \resumeItemListEnd
+
+    \cvGroupHeading{Coursework and Topics}
 
     \resumeProjectHeading
       {\textbf{Geospatial statistics with R} -- GEOG 413, UCLA MAGIST}{2025}
@@ -292,25 +328,13 @@
       \resumeItemListStart
         \resumeItem{Leaflet: 2020 Moldova presidential runoff results; socioeconomic marginalization in Mexico with user-selectable variables and color ramps \lnk{https://aggis.org/maps/unit2a/}{aggis.org/maps/unit2a}, \lnk{https://aggis.org/maps/unit2b/}{unit2b}}
         \resumeItem{D3: evolution of income and income inequality, 1800--2010 (Gapminder); time series of Italian migration, 1900--2014 (iSTAT) \lnk{https://aggis.org/maps/unit4/}{aggis.org/maps/unit4}, \lnk{https://aggis.org/maps/unit5/}{unit5}}
-        \resumeItem{Hosted WMS/WFS services with GeoServer and PostGIS; deployed a web mapping stack on AWS EC2 with nginx, Tomcat, and Let's Encrypt}
-      \resumeItemListEnd
-
-    \resumeProjectHeading
-      {\textbf{iSTAT Migration History Timeline} -- DH 201, UCLA Digital Humanities}{2024}
-      \resumeItemListStart
-        \resumeItem{Exploratory data visualization of Italian National Institute of Statistics time series (1869--2014), published as an ArcGIS Online time-slider app \lnk{https://aggis.org/maps/istat/}{aggis.org/maps/istat}}
+        \resumeItem{Hosted WMS/WFS services with GeoServer and PostGIS; deployed a web mapping stack on AWS EC2 (nginx, Tomcat, Let's Encrypt)}
       \resumeItemListEnd
 
     \resumeProjectHeading
       {\textbf{Python geospatial tools} -- GEOG 412, UCLA MAGIST}{2024}
       \resumeItemListStart
-        \resumeItem{Jupyter notebooks: Airbnb exploration and local-area analytics tools (Los Angeles, Amsterdam); 2020 POTUS election maps; North American Ski Explorer with geocoded radius search; World Bank API economic and demographic mapping tool (geopandas, folium, requests)}
-      \resumeItemListEnd
-
-    \resumeProjectHeading
-      {\textbf{DAHR Global Recording Explorer} -- ArcGIS Online web app}{2023}
-      \resumeItemListStart
-        \resumeItem{Joined DAHR's matrix and georeferenced place tables to map recording locations for nearly 70,000 78rpm records, with interactive widgets for label, date, and artist exploration; cleaned character-encoding and timestamp edge cases for use in ArcGIS Online \lnk{https://aggis.org/maps/dahr/}{aggis.org/maps/dahr}}
+        \resumeItem{Jupyter notebooks: Airbnb exploration and local-area analytics tools (Los Angeles, Amsterdam); 2020 POTUS election maps; North American Ski Explorer with geocoded radius search; World Bank API mapping tool (geopandas, folium, requests)}
       \resumeItemListEnd
 
     \resumeProjectHeading
@@ -322,34 +346,31 @@
     \resumeProjectHeading
       {\textbf{Advanced and intermediate GIS} -- GEOG XL 181A/181B, UCLA Extension}{2022 -- 2023}
       \resumeItemListStart
-        \resumeItem{Digitized warehouse structures in San Bernardino, CA (final project); Moran's I LISA report for the 2016 U.S. presidential election (GeoDa); georeferenced Sanborn fire insurance maps for Redlands, CA (QGIS); fire hazard mapping for residential parcels in Riverside, CA; site suitability analysis for outdoor recreation; 3D mapping of natural disasters}
-        \resumeItem{Viewshed analysis with T-Mobile cellular coverage; interpolation with IDW and empirical Bayesian kriging; network analysis for retail catchment areas; cost-path analysis across the Dari\'en Gap; environmental health atlas with map series; interactive ModelBuilder tool}
-      \resumeItemListEnd
-
-    \resumeProjectHeading
-      {\textbf{Cartography} -- GEOG XL 180, UCLA Extension; personal work}{2022 -- present}
-      \resumeItemListStart
-        \resumeItem{Olympic National Park unofficial visitor's map (Adobe Illustrator); Strava-derived bicycle heat maps from harvested GPX routes \lnk{https://aggis.org/maps/bike/}{aggis.org/maps/bike}; speculative sea-level-rise world-building maps \lnk{https://aggis.org/maps/rpg/}{aggis.org/maps/rpg}}
+        \resumeItem{Digitized warehouse structures in San Bernardino, CA (final project); Moran's I LISA report for the 2016 U.S. presidential election (GeoDa); georeferenced Sanborn fire insurance maps for Redlands, CA (QGIS); fire hazard mapping for residential parcels in Riverside, CA; site suitability analysis for outdoor recreation}
+        \resumeItem{Viewshed analysis with T-Mobile cellular coverage; interpolation with IDW and empirical Bayesian kriging; network analysis for retail catchment areas; cost-path analysis across the Dari\'en Gap; environmental health atlas with map series}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
 
 
-%-----------GRADUATE COURSEWORK-----------
-\section{Graduate and Post-Baccalaureate Coursework}
-  \resumeSubHeadingListStart
-    \resumeItemGroup{UCLA, Master of Applied Geospatial Information Systems and Technologies (2023 -- 2025)}
+%-----------PRESENTATIONS-----------
+\section{Presentations and Workshops}
     \resumeItemListStart
-      \resumeItem{Applied Spatial Data Science; Geospatial Databases and Data Management (PostgreSQL/PostGIS); Programming for Spatial Data Science I (Python) and II (JavaScript, web mapping); Geospatial Imagery Analysis; Applied Spatial Statistics (R); Spatial Data Science Futures (Google Earth Engine); Capstone I: Geospatial Research Methods and Capstone II: Geospatial Capstone Project (TRPA); Introduction to Statistical Reasoning (R)}
+      \resumeItem{MAGIST capstone video presentation on applied GIS for the Tahoe Regional Planning Agency -- GEOG 499, UCLA, 2025}
+      \resumeItem{\textit{`Cartographic' Documents, Simulacrum, and Representation-Reality Feedback} -- DH 250 Critical Cartography, UCLA, 2025}
+      \resumeItem{\textit{yt-dlp and ffmpeg: Harvesting CC-BY Licensed Video from YouTube for Documentary Purposes} -- DH 250 Professional Trajectories, UCLA, 2024}
+      \resumeItem{\textit{Italian Migration and the Life of the Italian Town} -- with C. Smith and D. Sparks; DH 201 Core Seminar in Digital Humanities, UCLA, 2024}
     \resumeItemListEnd
-    \resumeItemGroup{UCLA, Graduate Certificate in Digital Humanities (2024 -- 2025)}
+
+
+%-----------COURSEWORK-----------
+\section{Coursework}
     \resumeItemListStart
-      \resumeItem{Core Seminar in Digital Humanities; Professional Trajectories: Digital Humanities Methods in Practice; Introduction to Critical Cartography and Theories of Mapping}
+      \resumeItem{\textbf{UCLA, M.A.G.I.S.T. (2023 -- 2025):} Applied Spatial Data Science; Geospatial Databases and Data Management (PostgreSQL/PostGIS); Programming for Spatial Data Science I (Python) and II (JavaScript, web mapping); Geospatial Imagery Analysis; Applied Spatial Statistics (R); Spatial Data Science Futures (Google Earth Engine); Capstone I: Geospatial Research Methods and Capstone II: Geospatial Capstone Project (TRPA)}
+      \resumeItem{\textbf{UCLA, Graduate Certificate in Digital Humanities (2024 -- 2025):} Core Seminar in Digital Humanities; Professional Trajectories: Digital Humanities Methods in Practice; Introduction to Critical Cartography and Theories of Mapping}
+      \resumeItem{\textbf{UCLA Extension, GIS and Geospatial Technology Certificate (2022 -- 2023):} Introduction to GIS; Cartography; Intermediate GIS; Geospatial Databases and Enterprise GIS; Advanced GIS; Web Design}
+      %-- Selected undergraduate coursework: add a fourth bullet here, e.g.
+      % \resumeItem{\textbf{UCLA, B.A. Ethnomusicology and B.A. Anthropology (2017 -- 2021):} Stop-Motion Animation; ...}
     \resumeItemListEnd
-    \resumeItemGroup{UCLA Extension, GIS and Geospatial Technology Certificate (2022 -- 2023)}
-    \resumeItemListStart
-      \resumeItem{Introduction to GIS; Cartography; Intermediate GIS; Geospatial Databases and Enterprise GIS; Advanced GIS; Web Design (COM SCI X 418.102A)}
-    \resumeItemListEnd
-  \resumeSubHeadingListEnd
 
 
 %-----------FUNDING AND AWARDS-----------
@@ -365,8 +386,8 @@
     \resumeItemListStart
       \resumeItem{History of popular recorded music and the development of genre-specific ethos and aesthetics}
       \resumeItem{Formal, musical, and lyrical analysis of historical recordings cross-referenced with contemporary print and artistic materials}
-      \resumeItem{Geography of the early recording industry: studios, broadcast stations, executive offices, venues, and vendors; spatial exploration of discographic metadata}
-      \resumeItem{Time-series and historical GIS for demographic and cultural change; critical cartography and the pedagogy of library data visualization}
+      \resumeItem{Geography of the early recording industry: studios, broadcast stations, venues, and vendors; spatial exploration of discographic metadata}
+      \resumeItem{Time-series and historical GIS for demographic and cultural change; critical cartography and data visualization pedagogy}
       \resumeItem{History of reference mapping, GPS, and navigation technology for everyday use}
     \resumeItemListEnd
 
@@ -385,8 +406,8 @@
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Archives and Collections}{: FileMaker Pro, CatalogIt, OpenRefine, Aviary; EAD/OAC finding aids; controlled vocabularies; metadata crosswalking and remediation; Submission Information Packages} \\
-     \textbf{Audio and Video}{: FFmpeg, Steinberg Wavelab \& Cubase, Logic Pro, Audacity, Renoise; grooved and magnetic media playback and transfer} \\
+     \textbf{Archives and Collections}{: FileMaker Pro, CatalogIt, OpenRefine, Aviary; EAD/OAC finding aids; controlled vocabularies; metadata crosswalking and remediation} \\
+     \textbf{Audio and Video}{: FFmpeg, Steinberg Wavelab \& Cubase, Logic Pro, Audacity, Renoise; recording, mixing, and mastering; video editing and stop-motion animation} \\
      \textbf{Code Languages}{: Python, SQL, ODBC, JavaScript, HTML/CSS, R, \LaTeX; Unix and PowerShell shells; Git} \\
      \textbf{\hspace{0.15in}Specialties}{: scripting and batch processing, data parsing/transformation/visualization, REST APIs} \\
      \textbf{Desktop GIS}{: ArcGIS Pro, QGIS; porting to Adobe Illustrator for refined cartography or animation} \\
