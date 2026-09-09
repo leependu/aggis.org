@@ -29,10 +29,14 @@
 \usepackage{tabularx}
 \input{glyphtounicode}
 
+% Date stamp shown in the footer — bump this when the document is revised.
+\newcommand{\docdate}{09/2026}
+
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\textit{\docdate}}
 \fancyfoot[R]{\footnotesize\textit{Aaron Glenn Goodman -- c.v. -- page \thepage}}
 
 % Adjust margins

@@ -24,11 +24,14 @@
 \usepackage{tabularx}
 \input{glyphtounicode}
 
+% Date stamp shown in the footer — bump this when the document is revised.
+\newcommand{\docdate}{09/2026}
+
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
-\fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+\fancyfoot[R]{\scriptsize\textit{\docdate}}
 
 % Adjust margins
 \addtolength{\oddsidemargin}{-0.5in}
@@ -36,6 +39,7 @@
 \addtolength{\textwidth}{1in}
 \addtolength{\topmargin}{-.5in}
 \addtolength{\textheight}{1.0in}
+\setlength{\footskip}{18pt}
 
 \urlstyle{same}
 
