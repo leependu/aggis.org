@@ -61,7 +61,8 @@ Aaron Goodman
 		body {font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif"}
 	</style>
 </head>
-	
+
+<body>
 <!-- Google Analytics tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFLGQQ89F2"></script>
 <script>
@@ -70,32 +71,31 @@ Aaron Goodman
   gtag('js', new Date());
 
   gtag('config', 'G-HFLGQQ89F2');
-</script>	
+</script>
 
-<body>
     <div class="container" id="header">
 	<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
 		<a href="https://aggis.org/" class="d-flex align-items-center mb-3 mb-md-0 link-body-emphasis text-decoration-none">
 			<img style="width:75px" src="../../images/aggis.png" alt="">
-			<span class="fs-4" style="padding:5px"><h1>aggis.org</h1></span>
+			<h1 class="fs-4" style="padding:5px;margin:0;">aggis.org</h1>
 		</a>
         <ul class="d-flex align-items-center nav nav-pills mx-auto">
             <li class="d-flex align-items-center nav-item"><a href="https://aggis.org" class="nav-link">Home</a></li>
-            <li class="d-flex align-items-center nav-item"><a href="https://aggis.org/archives/" class="nav-link">Library & Archival Work</a></li>
+            <li class="d-flex align-items-center nav-item"><a href="https://aggis.org/archives/" class="nav-link">Library &amp; Archival Work</a></li>
             <li class="d-flex align-items-center nav-item"><a href="https://aggis.org/maps/" class="nav-link active" aria-current="page">Map Gallery</a></li>
             <li class="d-flex align-items-center nav-item"><a href="https://aggis.org/writing/" class="nav-link">Past Writing</a></li>
         </ul>
         <div id="links" class="d-flex justify-content-center flex-wrap mb-3 mt-3">
             <a href="https://gitlab.com/aaronggoodman/" class="btn btn-success m-1">
-                <img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/gitlab.png">
+                <img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/gitlab.png" alt="">
                 GitLab
             </a>
             <a href="https://github.com/leependu/" class="btn btn-success m-1">
-                <img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/github.png">
+                <img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/github.png" alt="">
                 GitHub
             </a>
             <a href="https://linkedin.com/in/aaronglenngoodman/" class="btn btn-success m-1">
-                <img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/linkedin.png">
+                <img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/linkedin.png" alt="">
                 LinkedIn
             </a>
         </div>
@@ -126,9 +126,6 @@ Aaron Goodman
             <div class="legend-caption">Sandu</div>
         </div>
     </div>
-</body>
-</html>
-
 <script type="text/javascript">
 // TO DO: Write utility function to return fill color for symbols
 function symbolColor(sandu, dodon) {
@@ -170,3 +167,5 @@ legend.onAdd = function(m) {
 }
 legend.addTo(map);
 </script>
+</body>
+</html>
