@@ -1,4 +1,4 @@
-# <img src="./docs/images/aggis.ico" width="36" height="36"> aggis.org.git
+# <img src="./images/aggis.ico" width="36" height="36"> aggis.org.git
 
 `GitHub Pages` -> [aggis.org](https://aggis.org)
 
