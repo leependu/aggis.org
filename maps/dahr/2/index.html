@@ -5,10 +5,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>aggis.org/maps/DAHR Global Recording Explorer</title>
+	<title>aggis.org/maps/DAHR Places: Recording Locations</title>
 	<!-- bootstrap min css -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-	<link href="../../images/aggis.ico" rel="icon">
+	<link href="../../../images/aggis.ico" rel="icon">
 	<style>
 	body {font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif"}
 	</style>
@@ -31,7 +31,7 @@
 <div class="container" id="header">
 <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
 	<a href="https://aggis.org/" class="d-flex align-items-center mb-3 mb-md-0 link-body-emphasis text-decoration-none">
-		<img style="width:75px" src="../../images/aggis.png" alt="">
+		<img style="width:75px" src="../../../images/aggis.png" alt="">
 		<h1 class="fs-4" style="padding:5px;margin:0;">aggis.org</h1>
 	</a>
 	<ul class="d-flex align-items-center nav nav-pills mx-auto">
@@ -42,15 +42,15 @@
 	</ul>
 	<div id="links" class="d-flex justify-content-center flex-wrap mb-3 mt-3">
 		<a href="https://gitlab.com/aaronggoodman/" class="btn btn-success m-1">
-			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/gitlab.png" alt="">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../../images/gitlab.png" alt="">
 			GitLab
 		</a>
 		<a href="https://github.com/leependu/" class="btn btn-success m-1">
-			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/github.png" alt="">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../../images/github.png" alt="">
 			GitHub
 		</a>
 		<a href="https://linkedin.com/in/aaronglenngoodman/" class="btn btn-success m-1">
-			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/linkedin.png" alt="">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../../images/linkedin.png" alt="">
 			LinkedIn
 		</a>
 	</div>
@@ -61,18 +61,27 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h2><a href="https://aggis.org/maps/" style="text-decoration:none">Map Gallery</a>/DAHR Global Recording Explorer</h2>
-				<h6>Discography of American Historical Recordings: Global Recording Explorer</h6>
+				<h2><a href="https://aggis.org/maps/" style="text-decoration:none">Map Gallery</a>/DAHR Places: Recording Locations</h2>
+				<h6>Discography of American Historical Recordings: <a href="https://adp.library.ucsb.edu/index.php/places">Recording Locations</a></h6>
 				<hr/>
-				This map application displays information including recording location for nearly 70,000 78rpm records housed in UCSB's DAHR collection. Interactive widgets allow greater exploration of data related to record companies, recording dates and locations, and talents or artists.
-				<br><br>
-				The data visualized are flat files retrieved in person at UCSB Special Research Collections' 78rpm archive, specifically the collection labelled the American Discography Project, or Discography of American Historical Recordings--the project I am working on as an audio digitization assistant.
-				<br><br>
-				The feature class contained in this webmap is the product of a join of two tables. One table from the DAHR database contains metadata for unique recordings including place / location (`matrix`), and this was joined to a table which georeferences and labels details for those places / locations (`geo`). 
-				<br><br>
-				The joined dataset required cleaning before it could be used in ArcGIS Online. In the future, I am eager to revisit the database in an effort to better handle edge cases caused by character encoding or timestamp errors. I would also like to experiment with other forms of visualization and analysis.
-				<br><br>
-				<a href="https://arcg.is/1uCWjr1">[external link]</a>
+				In early 2026 the ArcGIS Online "Web AppBuilder" (the framework upon which the original <a href="https://adp.library.ucsb.edu/index.php">DAHR</a> map application was built) began its course towards deprecation. I was tasked with producing a new version of the map application.<br><br>
+				Embedded below is this "DAHR Recording Locations" Instant App. This app allows users to explore nearly 1,000 recording locations associated with matrix recordings documented in DAHR.<br><br>
+				The map's informational sidebar will display details about each location, and provide a link to a matrix search on DAHR that will return all recordings captured at that location.<br><br>
+				<!-- <a href="https://ucsb.maps.arcgis.com/apps/instant/sidebar/index.html?appid=658ec7f92f5c407894a7cc4ac51faa0e" class="btn btn-success m-1">
+					Instant App
+				</a>
+				<a href="https://ucsb.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=4e826abbdcac4094b3d651f3f9df530e" class="btn btn-success m-1">
+					Web map
+				</a>
+				<a href="https://services1.arcgis.com/4TXrdeWh0RyCqPgB/arcgis/rest/services/DAHR_Recording_Locations/FeatureServer" class="btn btn-success m-1">
+					Feature layer
+				</a>
+				<a href="https://ucsb.maps.arcgis.com/sharing/rest/content/items/837e3b5515304e4e8ac394cc8db4e1bd/data" class="btn btn-success m-1">
+					CSV
+				</a>
+				<br><br> -->
+				<a href="https://ucsb.maps.arcgis.com/apps/instant/sidebar/index.html?appid=658ec7f92f5c407894a7cc4ac51faa0e">[external link]</a><br>
+				<a href="https://adp.library.ucsb.edu/index.php/places">See the map in-situ on DAHR!</a>
 				<br><br>
 				<hr/>
 			</div>
@@ -80,7 +89,7 @@
 	</div>
 	<div class="container">
 		<div id="section-embed">
-			<iframe width=100% height=900 align=center frameborder="0" scrolling="no" allowfullscreen src="https://arcg.is/1uCWjr1"></iframe>
+			<iframe width=100% height=900 align=center frameborder="0" scrolling="no" allowfullscreen src="https://ucsb.maps.arcgis.com/apps/instant/sidebar/index.html?appid=658ec7f92f5c407894a7cc4ac51faa0e"></iframe>
 		</div>
 	</div>
 </main>
@@ -95,7 +104,7 @@
 				<blockquote class="blockquote fs-6 fst-italic mb-2">
 					<p class="mb-0">ad astra per alia porci</p>
 				</blockquote>
-				<img src="../../images/pigasus.png" alt="Pigasus, John Steinbeck&#39;s winged-pig self-portrait" width="150" height="117" class="img-fluid">
+				<img src="../../../images/pigasus.png" alt="Pigasus, John Steinbeck&#39;s winged-pig self-portrait" width="150" height="117" class="img-fluid">
 				<figcaption class="blockquote-footer mt-2 mb-0">John Steinbeck</figcaption>
 			</figure>
 		</div>
