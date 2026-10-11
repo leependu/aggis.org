@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+	
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>aggis.org/maps/Inland Empire Warehouses</title>
+	<!-- bootstrap min css -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<!-- highlight.js theme -->
+	<link href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css" rel="stylesheet" integrity="sha384-eFTL69TLRZTkNfYZOLM+G04821K1qZao/4QLJbet1pP4tcF+fdXq/9CdqAbWRl/L" crossorigin="anonymous">
+	<link href="../../images/aggis.ico" rel="icon">
+	<style>
+	body {font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif"}
+	.video-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	pre.gee-script {
+		max-height: 30em;
+		overflow: auto;
+		padding: 1em;
+		font-size: 0.8em;
+		background: var(--bs-tertiary-bg);
+		border: 1px solid var(--bs-border-color);
+		border-radius: 0.375rem;
+	}
+	pre.gee-script code.hljs {
+		padding: 0;
+		background: transparent;
+	}
+	</style>
+</head>
+
+<body>
+<!-- Google Analytics tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFLGQQ89F2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HFLGQQ89F2');
+</script>
+
+	
+<!-- bootstrap bundle min js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>	
+<!-- actual body -->
+<div class="container" id="header">
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+	<a href="https://aggis.org/" class="d-flex align-items-center mb-3 mb-md-0 link-body-emphasis text-decoration-none">
+		<img style="width:75px" src="../../images/aggis.png" alt="">
+		<h1 class="fs-4" style="padding:5px;margin:0;">aggis.org</h1>
+	</a>
+	<ul class="d-flex align-items-center nav nav-pills mx-auto">
+			<li class="d-flex align-items-center nav-item"><a href="https://aggis.org" class="nav-link">Home</a></li>
+			<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/archives/" class="nav-link">Library &amp; Archival Work</a></li>
+			<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/maps/" class="nav-link active" aria-current="page">Map Gallery</a></li>
+			<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/writing/" class="nav-link">Past Writing</a></li>
+	</ul>
+	<div id="links" class="d-flex justify-content-center flex-wrap mb-3 mt-3">
+		<a href="https://gitlab.com/aaronggoodman/" class="btn btn-success m-1">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/gitlab.png" alt="">
+			GitLab
+		</a>
+		<a href="https://github.com/leependu/" class="btn btn-success m-1">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/github.png" alt="">
+			GitHub
+		</a>
+		<a href="https://linkedin.com/in/aaronglenngoodman/" class="btn btn-success m-1">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/linkedin.png" alt="">
+			LinkedIn
+		</a>
+	</div>
+</header>
+</div>	
+	
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h2><a href="https://aggis.org/maps/" style="text-decoration:none">Map Gallery</a>/Inland Empire Warehouses</h2>
+				<h6>(video)</h6>
+				<hr/>
+				I grew up in California's Inland Empire, where the landscape has changed dramatically over the past two decades. During my time in UCLA's MAGIST program, I had the opportunity to explore the shifting landscape with remote sensing imagery by employing Google Earth Engine, which I learned how to use in GEOG 415: Geospatial Data Science Futures. My first examination into the Inland Empire's warehouse explosion was rudimentary; I simply compared imagery from 1999 and 2019 (using LANDSAT 7 and 8 data, respectively). Below I've shared my first GEE script:
+				<br><br>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Finland-empire-warehouses%3Awarehouses">Google Earth Engine script</a>
+				<br>
+				<details class="mt-2">
+					<summary>show script (<a href="https://github.com/leependu/inland-empire-warehouses/blob/main/warehouses">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/inland-empire-warehouses/main/warehouses">Loading…</code></pre>
+				</details>
+				<br>
+				A lot has changed in the Inland Empire in my lifetime; the rapid expansion of warehousing was the primary shift that I wanted to visualize.
+				<br><br>
+				The focus of GEOG 415 shifted towards more advanced geospatial analysis techniques, including the use of machine learning algorithms to identify and classify different types of land use changes over time, in particular for a collaborative project examining Eastern Washington state. The ML projects were quite involved, so my personal interest in the Inland Empire warehouse explosion moved to the backburner. I knew that I would want to revisit the project though, knowing that Google Earth Engine is an invaluable tool for creating timelapses and conducting complex analyses. 
+				<br><br>
+				In Summer 2026 I employed LLMs (Claude Sonnet) to generate the code to create the timelapses. I was curious to test their capabilities in this domain.
+				<br><br>
+				With the models' help, we created 2 timelapses. The first shows the transformation from 1999 to 2019 using LANDSAT 7 and 8 data, and the second illustrates the changes from 2019 to 2024 using Sentinel-2 data. I am sharing the timelapses here because I am pleased with the results.
+				<br><br>
+				You can view the videos below, and use the links to download them or examine the code that generated them.
+				<br><br>
+				I would like to continue this thread in the future, though I am unsure to which extent I will employ LLMs. For example, I'm eager to analyze the warehouses' impact on the surrounding environment, especially in terms of heat, habitat fragmentation, and air quality changes. Seeing as these are more complex analyses, I am wary of relying too heavily on generative AI; but I was impressed with the Claude models' performance for the simple timelapse scripts.
+				<br><br>
+			</div>
+		</div>
+	</div>
+	<div class="video-container">
+		<video autoplay loop muted playsinline preload="auto" width="480">
+		<source src="../../video/IE_Warehouse_Timelapse_1999_2024.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+		</video>
+		
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<br>
+				<a href="https://aggis.org/video/IE_Warehouse_Timelapse_1999_2024.mp4">view video fullscreen / download</a>
+				<br>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Finland-empire-warehouses%3AwarehousesTimelapse">Google Earth Engine script</a>
+				<br>
+				<details class="mt-2">
+					<summary>show script (<a href="https://github.com/leependu/inland-empire-warehouses/blob/main/warehousesTimelapse">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/inland-empire-warehouses/main/warehousesTimelapse">Loading…</code></pre>
+				</details>
+				<br>
+			</div>
+		</div>
+	</div>
+	<div class="video-container">
+		<video autoplay loop muted playsinline preload="auto" width="480">
+		<source src="../../video/IE_Warehouse_Timelapse_S2_2019_2025.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+		</video>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<br>
+				<a href="https://aggis.org/video/IE_Warehouse_Timelapse_S2_2019_2025.mp4">view video fullscreen / download</a>
+				<br>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Finland-empire-warehouses%3AwarehousesTimelapseS2">Google Earth Engine script</a>
+				<br>
+				<details class="mt-2">
+					<summary>show script (<a href="https://github.com/leependu/inland-empire-warehouses/blob/main/warehousesTimelapseS2">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/inland-empire-warehouses/main/warehousesTimelapseS2">Loading…</code></pre>
+				</details>
+			</div>
+		</div>
+	</div>
+</main>
+	
+<footer>
+	<div class="container">
+	<div class="row">
+		<div class="col">
+			<hr/>
+			<p class="footer">Source: <a href="https://github.com/leependu/aggis.org.git">github.com/leependu/aggis.org.git</a></p>
+			<figure class="text-center mt-4 mb-0">
+				<blockquote class="blockquote fs-6 fst-italic mb-2">
+					<p class="mb-0">ad astra per alia porci</p>
+				</blockquote>
+				<img src="../../images/pigasus.png" alt="Pigasus, John Steinbeck&#39;s winged-pig self-portrait" width="150" height="117" class="img-fluid">
+				<figcaption class="blockquote-footer mt-2 mb-0">John Steinbeck</figcaption>
+			</figure>
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- load GEE scripts from the GitHub mirror -->
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js" integrity="sha384-F/bZzf7p3Joyp5psL90p/p89AZJsndkSoGwRpXcZhleCWhd8SnRuoYo4d0yirjJp" crossorigin="anonymous"></script>
+<script>
+document.querySelectorAll('code[data-src]').forEach(el => {
+  fetch(el.dataset.src)
+    .then(r => r.ok ? r.text() : Promise.reject(r.status))
+    .then(t => {
+      el.textContent = t;
+      if (window.hljs) hljs.highlightElement(el);
+    })
+    .catch(() => el.textContent = 'Could not load script; see the GitHub link above.');
+});
+</script>
+
+</body>
+
+</html>
