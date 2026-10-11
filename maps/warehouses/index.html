@@ -16,6 +16,15 @@
 		justify-content: center;
 		align-items: center;
 	}
+	pre.gee-script {
+		max-height: 30em;
+		overflow: auto;
+		padding: 1em;
+		font-size: 0.8em;
+		background: var(--bs-tertiary-bg);
+		border: 1px solid var(--bs-border-color);
+		border-radius: 0.375rem;
+	}
 	</style>
 </head>
 
@@ -88,9 +97,12 @@
 				<br>
 				<a href="https://aggis.org/video/IE_Warehouse_Timelapse_1999_2024.mp4">view video fullscreen / download</a>
 				<br>
-				<!-- <a href="https://raw.githubusercontent.com/leependu/inland-empire-warehouses/refs/heads/main/warehousesTimelapse">raw script to embed</a> -->
 				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Finland-empire-warehouses%3AwarehousesTimelapse">Google Earth Engine script</a>
 				<br>
+				<details class="mt-2">
+					<summary>show script (<a href="https://github.com/leependu/inland-empire-warehouses/blob/main/warehousesTimelapse">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code data-src="https://raw.githubusercontent.com/leependu/inland-empire-warehouses/main/warehousesTimelapse">Loading…</code></pre>
+				</details>
 				<hr/>
 				...blah blah blah this next one is Sentinel-2...<br>
 				<br>
@@ -110,9 +122,12 @@
 				<br>
 				<a href="https://aggis.org/video/IE_Warehouse_Timelapse_S2_2019_2025.mp4">view video fullscreen / download</a>
 				<br>
-				<!-- <a href="https://raw.githubusercontent.com/leependu/inland-empire-warehouses/refs/heads/main/warehousesTimelapseS2">raw script to embed</a> -->
 				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Finland-empire-warehouses%3AwarehousesTimelapseS2">Google Earth Engine script</a>
 				<br>
+				<details class="mt-2">
+					<summary>show script (<a href="https://github.com/leependu/inland-empire-warehouses/blob/main/warehousesTimelapseS2">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code data-src="https://raw.githubusercontent.com/leependu/inland-empire-warehouses/main/warehousesTimelapseS2">Loading…</code></pre>
+				</details>
 			</div>
 		</div>
 	</div>
@@ -134,7 +149,17 @@
 		</div>
 	</div>
 	</div>
-</footer>	
+</footer>
+
+<!-- load GEE scripts from the GitHub mirror -->
+<script>
+document.querySelectorAll('code[data-src]').forEach(el => {
+  fetch(el.dataset.src)
+    .then(r => r.ok ? r.text() : Promise.reject(r.status))
+    .then(t => el.textContent = t)
+    .catch(() => el.textContent = 'Could not load script; see the GitHub link above.');
+});
+</script>
 
 </body>
 
