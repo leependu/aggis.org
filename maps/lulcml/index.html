@@ -90,6 +90,7 @@
 				All of the scripts are public in a Google Earth Engine repository, mirrored on GitHub:
 				<a href="https://github.com/leependu/washington-lulc-ml-landsat">github.com/leependu/washington-lulc-ml-landsat</a>.
 				They are numbered in pipeline order, and each script's header still carries its original course name.
+				In October 2026 I cleaned up the class scripts with help from an LLM (Claude Opus 5.5), which also wrote the shared <code>tools</code> module and the <code>07_lulcMap</code> script.
 				<br><br>
 
 				<h4 class="mt-3">Scene selection and digitization</h4>
@@ -137,6 +138,15 @@
 					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/05_harmonizeAndSample">Loading…</code></pre>
 				</details>
 				<br>
+				The join, cloud mask, reflectance scaling, and sampling functions were pasted in full into three of the class scripts. They now live in one shared module that <code>05</code> and <code>06</code> import.
+				<br><br>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3Atools">Google Earth Engine script: shared tools</a>
+				<br>
+				<details class="mt-2">
+					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/tools">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/tools">Loading…</code></pre>
+				</details>
+				<br>
 
 				<h4 class="mt-3">Training and tuning the random forest</h4>
 				Before tuning, I tested whether the sampling scale mattered and whether Tasseled Cap brightness, greenness, and wetness components improved on the six reflectance bands alone. Each test held out a random 20% of points (100 trees):
@@ -167,9 +177,26 @@
 						<tr><td>maxNodes</td><td>unlimited</td><td>unlimited</td><td>0.702</td></tr>
 					</tbody>
 				</table>
-				The final model reached 70.2% overall accuracy on held-out points. The script also reports the confusion matrix, producer's and consumer's accuracy, kappa, and variable importance.
+				The accuracies in these tables come from my 2025 runs. The final model, as published, reaches 68% overall accuracy on held-out points (kappa 0.62). That number moved while I prepared this page. The same model scored 70.2% in 2025, then 69.1% and 68.3% in 2026, with the same inputs, parameters, and seed. What changed was which random 20% of the points landed in the test set: Earth Engine reshuffles that split whenever upstream code changes.
 				<br><br>
-				Seventy percent is modest, and I think the training data explains most of it. Seventeen digitizers labeled imagery from different years and seasons, each judging the six classes a little differently. Many points also fall on mixed 30&nbsp;m pixels, and the polygon centroids may not sit in the class their polygon described. <!-- TODO (Aaron): confirm against the confusion matrix which classes were most confused (e.g. rangeland vs agriculture) before naming them here. --> And the number may be optimistic: the train/test split was random, so test points often sit next to training points from the same scene. A spatially blocked split would be a fairer test.
+				Accuracy varies a lot by class:
+				<br><br>
+				<table class="table table-sm table-bordered results">
+					<thead>
+						<tr><th>class</th><th>producer's accuracy</th><th>consumer's accuracy</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>urban</td><td>0.77</td><td>0.75</td></tr>
+						<tr><td>agriculture</td><td>0.52</td><td>0.58</td></tr>
+						<tr><td>rangeland</td><td>0.40</td><td>0.47</td></tr>
+						<tr><td>forest</td><td>0.88</td><td>0.83</td></tr>
+						<tr><td>water</td><td>0.92</td><td>0.94</td></tr>
+						<tr><td>barren</td><td>0.57</td><td>0.47</td></tr>
+					</tbody>
+				</table>
+				Forest and water are easy to tell apart. Rangeland is the weakest class, and most of its errors are labeled agriculture or barren. That makes sense to me: in summer, sparse dry grassland looks a lot like fallow fields and bare ground.
+				<br><br>
+				Sixty-eight percent is modest, and I think the training data explains most of it. Seventeen digitizers labeled imagery from different years and seasons, each judging the six classes a little differently. Many points also fall on mixed 30&nbsp;m pixels, and the polygon centroids may not sit in the class their polygon described. The number may also be optimistic: the train/test split was random, so test points often sit next to training points from the same scene. The two-point swing from reshuffling the test set says the same thing: a single random split is not a stable measure, and a spatially blocked split would be a fairer test.
 				<br><br>
 				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A06_randomForest">Google Earth Engine script</a>
 				<br>
@@ -180,17 +207,26 @@
 				<br>
 
 				<h4 class="mt-3">Change detection, 2017 to 2022</h4>
-				Finally, I classified summer composites from 2017 and 2022 for path 46, row 27 and crossed the two maps into a transition matrix. Each pixel's code records its 2017 class and its 2022 class, so a code of 27 means agriculture in 2017 and barren in 2022. The two dates bracket fire recovery and later flooding in the footprint. <!-- TODO (Aaron): the fire/flood framing comes from a print() in 06_randomForest; confirm which fires and floods, or cut it. -->
-				This step is at the end of the random forest script above.
+				Finally, I classified summer median composites from 2017 and 2022 for path 46, row 27, which runs from Seattle to the Cascades. I then crossed the two maps into a transition matrix. Each pixel's code records its 2017 class and its 2022 class, so a code of 27 means agriculture in 2017 and barren in 2022. On the change map, stable pixels are grey and changed pixels take the color of their 2022 class. This step is at the end of the random forest script above. <!-- TODO (Aaron): 06 still prints "fire recovery (2017) and flood impacts (2022)"; if you confirm which events, they could go here. -->
 				<br><br>
-				<!-- TODO (Aaron): add the map image exported from 07_lulcMap, e.g.
-				<figure class="figure">
-					<a href="../../files/maps/images/agg_geog_415_lulcml.png"><img src="../../files/maps/images/agg_geog_415_lulcml.png" class="figure-img img-fluid" alt="Land cover classification of path 46 row 27, 2017 and 2022"></a>
-					<figcaption class="figure-caption">caption</figcaption>
+				The last script loads the two exported classifications and maps 2022 with a palette borrowed from the NLCD legend:
+				<br><br>
+				<!-- TODO (Aaron): swap in the larger export from 07_lulcMap when it exists (src and href) -->
+				<figure class="figure" style="max-width:800px">
+					<a href="../../images/thumb/agg_geog_415_lulcml_thumb.png"><img src="../../images/thumb/agg_geog_415_lulcml_thumb.png" class="figure-img img-fluid rounded" alt="Random forest land cover classification for 2022, Seattle through the Cascade foothills"></a>
+					<figcaption class="figure-caption">
+						Land cover, 2022: Seattle through the Cascade foothills (random forest, Landsat 8/9, path 46 row 27)
+						<div class="d-flex flex-wrap gap-3 mt-2">
+							<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#eb0000"></span> urban</span>
+							<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#ab6c28"></span> agriculture</span>
+							<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#dfdfc2"></span> rangeland</span>
+							<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#1c5f2c"></span> forest</span>
+							<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#476ba1"></span> water</span>
+							<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#b3ac9f"></span> barren</span>
+						</div>
+					</figcaption>
 				</figure>
 				<br><br>
-				-->
-				<!-- TODO (Aaron): uncomment once 07_lulcMap exists
 				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A07_lulcMap">Google Earth Engine script</a>
 				<br>
 				<details class="mt-2">
@@ -198,7 +234,6 @@
 					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/07_lulcMap">Loading…</code></pre>
 				</details>
 				<br>
-				-->
 
 				<h4 class="mt-3">What I would try next</h4>
 				With more time, I would validate with spatially blocked or stratified splits instead of a random one. I would also compare the classification against Dynamic World or NLCD, and add a snow and ice class so winter scenes can contribute without forcing snowy pixels into the six existing classes.
