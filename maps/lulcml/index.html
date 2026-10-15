@@ -209,23 +209,30 @@
 				<h4 class="mt-3">Change detection, 2017 to 2022</h4>
 				Finally, I classified summer median composites from 2017 and 2022 for path 46, row 27, which runs from Seattle to the Cascades. I then crossed the two maps into a transition matrix. Each pixel's code records its 2017 class and its 2022 class, so a code of 27 means agriculture in 2017 and barren in 2022. On the change map, stable pixels are grey and changed pixels take the color of their 2022 class. This step is at the end of the random forest script above. <!-- TODO (Aaron): 06 still prints "fire recovery (2017) and flood impacts (2022)"; if you confirm which events, they could go here. -->
 				<br><br>
-				The last script loads the two exported classifications and maps 2022 with a palette borrowed from the NLCD legend:
+				The last script loads the two exported classifications. It maps 2022 with a palette borrowed from the NLCD legend, and maps the change from 2017 in the same colors:
 				<br><br>
-				<!-- TODO (Aaron): swap in the larger export from 07_lulcMap when it exists (src and href) -->
-				<figure class="figure" style="max-width:800px">
-					<a href="../../images/thumb/agg_geog_415_lulcml_thumb.png"><img src="../../images/thumb/agg_geog_415_lulcml_thumb.png" class="figure-img img-fluid rounded" alt="Random forest land cover classification for 2022, Seattle through the Cascade foothills"></a>
-					<figcaption class="figure-caption">
-						Land cover, 2022: Seattle through the Cascade foothills (random forest, Landsat 8/9, path 46 row 27)
-						<div class="d-flex flex-wrap gap-3 mt-2">
-							<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#eb0000"></span> urban</span>
-							<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#ab6c28"></span> agriculture</span>
-							<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#dfdfc2"></span> rangeland</span>
-							<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#1c5f2c"></span> forest</span>
-							<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#476ba1"></span> water</span>
-							<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#b3ac9f"></span> barren</span>
-						</div>
-					</figcaption>
-				</figure>
+				<div class="row g-3" style="max-width:1100px">
+					<figure class="figure col-md-6 mb-0">
+						<a href="../../files/maps/images/agg_geog_415_lulcml_2022.png"><img src="../../files/maps/images/agg_geog_415_lulcml_2022.png" class="figure-img img-fluid rounded" alt="Random forest land cover classification for 2022, Seattle through the Cascade foothills"></a>
+						<figcaption class="figure-caption">Land cover, 2022</figcaption>
+					</figure>
+					<figure class="figure col-md-6 mb-0">
+						<a href="../../files/maps/images/agg_geog_415_lulcml_change.png"><img src="../../files/maps/images/agg_geog_415_lulcml_change.png" class="figure-img img-fluid rounded" alt="Land cover change from 2017 to 2022: stable pixels in dark grey, changed pixels in their 2022 class color"></a>
+						<figcaption class="figure-caption">Change, 2017 to 2022: stable pixels in dark grey, changed pixels in their 2022 class</figcaption>
+					</figure>
+				</div>
+				<div class="figure-caption mt-2" style="max-width:1100px">
+					Seattle through the Cascade foothills (random forest, Landsat 8/9, path 46 row 27)
+					<div class="d-flex flex-wrap gap-3 mt-2">
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#404040"></span> stable (change map)</span>
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#eb0000"></span> urban</span>
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#ab6c28"></span> agriculture</span>
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#dfdfc2"></span> rangeland</span>
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#1c5f2c"></span> forest</span>
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#476ba1"></span> water</span>
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#b3ac9f"></span> barren</span>
+					</div>
+				</div>
 				<br><br>
 				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A07_lulcMap">Google Earth Engine script</a>
 				<br>
