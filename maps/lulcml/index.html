@@ -89,7 +89,7 @@
 				<br><br>
 				All of the scripts are public in a Google Earth Engine repository, mirrored on GitHub:
 				<a href="https://github.com/leependu/washington-lulc-ml-landsat">github.com/leependu/washington-lulc-ml-landsat</a>.
-				They are numbered in pipeline order, and each one keeps a note on the original course script it came from.
+				They are numbered in pipeline order, and each script's header still carries its original course name.
 				<br><br>
 
 				<h4 class="mt-3">Scene selection and digitization</h4>
@@ -171,16 +171,17 @@
 				<br><br>
 				Seventy percent is modest, and I think the training data explains most of it. Seventeen digitizers labeled imagery from different years and seasons, each judging the six classes a little differently. Many points also fall on mixed 30&nbsp;m pixels, and the polygon centroids may not sit in the class their polygon described. <!-- TODO (Aaron): confirm against the confusion matrix which classes were most confused (e.g. rangeland vs agriculture) before naming them here. --> And the number may be optimistic: the train/test split was random, so test points often sit next to training points from the same scene. A spatially blocked split would be a fairer test.
 				<br><br>
-				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A06_trainTuneClassify">Google Earth Engine script</a>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A06_randomForest">Google Earth Engine script</a>
 				<br>
 				<details class="mt-2">
-					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/06_trainTuneClassify">GitHub</a>)</summary>
-					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/06_trainTuneClassify">Loading…</code></pre>
+					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/06_randomForest">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/06_randomForest">Loading…</code></pre>
 				</details>
 				<br>
 
 				<h4 class="mt-3">Change detection, 2017 to 2022</h4>
-				Finally, I classified summer composites from 2017 and 2022 for path 46, row 27 and crossed the two maps into a transition matrix. Each pixel's code records its 2017 class and its 2022 class, so a code of 27 means agriculture in 2017 and barren in 2022. The two dates bracket fire recovery and later flooding in the footprint.
+				Finally, I classified summer composites from 2017 and 2022 for path 46, row 27 and crossed the two maps into a transition matrix. Each pixel's code records its 2017 class and its 2022 class, so a code of 27 means agriculture in 2017 and barren in 2022. The two dates bracket fire recovery and later flooding in the footprint. <!-- TODO (Aaron): the fire/flood framing comes from a print() in 06_randomForest; confirm which fires and floods, or cut it. -->
+				This step is at the end of the random forest script above.
 				<br><br>
 				<!-- TODO (Aaron): add the map image exported from 07_lulcMap, e.g.
 				<figure class="figure">
@@ -189,6 +190,7 @@
 				</figure>
 				<br><br>
 				-->
+				<!-- TODO (Aaron): uncomment once 07_lulcMap exists
 				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A07_lulcMap">Google Earth Engine script</a>
 				<br>
 				<details class="mt-2">
@@ -196,6 +198,7 @@
 					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/07_lulcMap">Loading…</code></pre>
 				</details>
 				<br>
+				-->
 
 				<h4 class="mt-3">What I would try next</h4>
 				With more time, I would validate with spatially blocked or stratified splits instead of a random one. I would also compare the classification against Dynamic World or NLCD, and add a snow and ice class so winter scenes can contribute without forcing snowy pixels into the six existing classes.
