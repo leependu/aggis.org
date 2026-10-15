@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>aggis.org/maps/Washington Land Cover Classification</title>
+	<!-- bootstrap min css -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<!-- highlight.js theme -->
+	<link href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css" rel="stylesheet" integrity="sha384-eFTL69TLRZTkNfYZOLM+G04821K1qZao/4QLJbet1pP4tcF+fdXq/9CdqAbWRl/L" crossorigin="anonymous">
+	<link href="../../images/aggis.ico" rel="icon">
+	<style>
+	body {font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif"}
+	pre.gee-script {
+		max-height: 30em;
+		overflow: auto;
+		padding: 1em;
+		font-size: 0.8em;
+		background: var(--bs-tertiary-bg);
+		border: 1px solid var(--bs-border-color);
+		border-radius: 0.375rem;
+	}
+	pre.gee-script code.hljs {
+		padding: 0;
+		background: transparent;
+	}
+	table.results {
+		width: auto;
+		font-size: 0.9em;
+	}
+	</style>
+</head>
+
+<body>
+<!-- Google Analytics tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFLGQQ89F2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HFLGQQ89F2');
+</script>
+
+
+<!-- bootstrap bundle min js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- actual body -->
+<div class="container" id="header">
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+	<a href="https://aggis.org/" class="d-flex align-items-center mb-3 mb-md-0 link-body-emphasis text-decoration-none">
+		<img style="width:75px" src="../../images/aggis.png" alt="">
+		<h1 class="fs-4" style="padding:5px;margin:0;">aggis.org</h1>
+	</a>
+	<ul class="d-flex align-items-center nav nav-pills mx-auto">
+			<li class="d-flex align-items-center nav-item"><a href="https://aggis.org" class="nav-link">Home</a></li>
+			<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/archives/" class="nav-link">Library &amp; Archival Work</a></li>
+			<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/maps/" class="nav-link active" aria-current="page">Map Gallery</a></li>
+			<li class="d-flex align-items-center nav-item"><a href="https://aggis.org/writing/" class="nav-link">Past Writing</a></li>
+	</ul>
+	<div id="links" class="d-flex justify-content-center flex-wrap mb-3 mt-3">
+		<a href="https://gitlab.com/aaronggoodman/" class="btn btn-success m-1">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/gitlab.png" alt="">
+			GitLab
+		</a>
+		<a href="https://github.com/leependu/" class="btn btn-success m-1">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/github.png" alt="">
+			GitHub
+		</a>
+		<a href="https://linkedin.com/in/aaronglenngoodman/" class="btn btn-success m-1">
+			<img style="vertical-align:text-top;margin-right:4px;width:16px" src="../../images/linkedin.png" alt="">
+			LinkedIn
+		</a>
+	</div>
+</header>
+</div>
+
+<!-- DRAFT PROSE: placeholder text for Aaron to rewrite in his own words -->
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h2><a href="https://aggis.org/maps/" style="text-decoration:none">Map Gallery</a>/Washington Land Cover Classification</h2>
+				<h6>(image)</h6>
+				<hr/>
+				In Spring 2025 I took GEOG 415: Spatial Data Science Futures with Dr. Bo Zhou in UCLA's MAGIST program. The course's major project was collaborative: every student digitized land cover ground truth for one Landsat footprint in Washington State, and the class pooled its work into one training set for a random forest classifier in Google Earth Engine. My footprint was WRS-2 path 43, row 27, which covers Spokane and the Palouse. The pooled set grew to 13 footprints and spans 2014 to 2024.
+				<br><br>
+				All of the scripts are public in a Google Earth Engine repository, mirrored on GitHub:
+				<a href="https://github.com/leependu/washington-lulc-ml-landsat">github.com/leependu/washington-lulc-ml-landsat</a>.
+				They are numbered in pipeline order, and each one keeps a note on the original course script it came from.
+				<br><br>
+
+				<h4 class="mt-3">Scene selection and digitization</h4>
+				I started by filtering Landsat 8 and 9 Collection 2 Level 2 imagery by path, row, and season to find cloud-free 2024 scenes. I found four usable scenes in spring, five in summer, three in fall, and only one in winter.
+				<br><br>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A01_sceneSelection">Google Earth Engine script</a>
+				<br>
+				<details class="mt-2">
+					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/01_sceneSelection">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/01_sceneSelection">Loading…</code></pre>
+				</details>
+				<br>
+				The class target was about 150 points per season, split across six classes: urban, agriculture, rangeland, forest, water, and barren. I divided each season's budget by its number of scenes, which came to 42 points per spring scene, 30 per summer scene, and 54 per fall scene. The single winter scene got 120 points. That made 600 points across 13 scenes.
+				<br><br>
+				Looking back, my digitization scripts are clunky. Each point is written out by hand as its own <code>ee.Geometry.Point</code> literal, one script per scene. Today I would draw the geometries in the Code Editor and import them, or at least loop over a coordinate list.
+				<br><br>
+				<a href="https://github.com/leependu/washington-lulc-ml-landsat/tree/main/02_groundTruth/p43_r27">ground truth scripts, one per scene (GitHub)</a>
+				<br>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A03_mergeGroundTruth">Google Earth Engine script: merging my 13 scenes</a>
+				<br>
+				<details class="mt-2">
+					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/03_mergeGroundTruth">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/03_mergeGroundTruth">Loading…</code></pre>
+				</details>
+				<br>
+
+				<h4 class="mt-3">Pooling the class's ground truth</h4>
+				Nineteen collections came in, one from each contributor, and no two were quite alike. Six were digitized as polygons rather than points, so I converted them to centroids. Four more used different property names or data types for the same fields, which I renamed and recast. Two lacked the acquisition date and path/row needed to tie each point back to its source scene; without that metadata they could not be sampled, so I left them out. After merging the remaining 17, I filtered out points that a sign error had placed in the wrong hemisphere. My thanks go to my classmates, whose work made a statewide training set possible.
+				<br><br>
+				Much of this step was metadata remediation rather than remote sensing: reading each contributor's schema, mapping it to a shared one, and documenting what could not be reconciled. It is the same kind of work I do with finding aids and collection metadata in special collections.
+				<br><br>
+				Next, each point was joined to a Landsat scene from its own path/row within 15 days of its recorded date. The scene was then cloud-masked with the <code>QA_PIXEL</code> band and scaled to surface reflectance, and six bands were sampled at 30&nbsp;m.
+				<br><br>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A04_poolClassGroundTruth">Google Earth Engine script</a>
+				<br>
+				<details class="mt-2">
+					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/04_poolClassGroundTruth">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/04_poolClassGroundTruth">Loading…</code></pre>
+				</details>
+				<br>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A05_harmonizeAndSample">Google Earth Engine script: harmonization</a>
+				<br>
+				<details class="mt-2">
+					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/05_harmonizeAndSample">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/05_harmonizeAndSample">Loading…</code></pre>
+				</details>
+				<br>
+
+				<h4 class="mt-3">Training and tuning the random forest</h4>
+				Before tuning, I tested whether the sampling scale mattered and whether Tasseled Cap brightness, greenness, and wetness components improved on the six reflectance bands alone. Each test held out a random 20% of points (100 trees):
+				<br><br>
+				<table class="table table-sm table-bordered results">
+					<thead>
+						<tr><th>scale (m)</th><th>bands only</th><th>bands + Tasseled Cap</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>30</td><td>0.687</td><td><strong>0.709</strong></td></tr>
+						<tr><td>60</td><td>0.682</td><td>0.691</td></tr>
+						<tr><td>90</td><td>0.673</td><td>0.668</td></tr>
+						<tr><td>120</td><td>0.662</td><td>0.664</td></tr>
+						<tr><td>150</td><td>0.663</td><td>0.663</td></tr>
+					</tbody>
+				</table>
+				The finest scale with Tasseled Cap won. I meant to run a grid search over the hyperparameters, but it ran past Earth Engine's memory limits. Instead I tuned one parameter at a time, carrying each winner into the next step:
+				<br><br>
+				<table class="table table-sm table-bordered results">
+					<thead>
+						<tr><th>step</th><th>values tested</th><th>chosen</th><th>accuracy</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>numberOfTrees</td><td>50, 75, 90, 110, 130, 150</td><td>130</td><td>0.682</td></tr>
+						<tr><td>variablesPerSplit</td><td>1 to 6</td><td>3</td><td>0.702</td></tr>
+						<tr><td>minLeafPopulation</td><td>1, 3, 5, 7, 9</td><td>1</td><td>0.702</td></tr>
+						<tr><td>bagFraction</td><td>0.3 to 0.8</td><td>0.5</td><td>0.702</td></tr>
+						<tr><td>maxNodes</td><td>unlimited</td><td>unlimited</td><td>0.702</td></tr>
+					</tbody>
+				</table>
+				The final model reached 70.2% overall accuracy on held-out points. The script also reports the confusion matrix, producer's and consumer's accuracy, kappa, and variable importance.
+				<br><br>
+				Seventy percent is modest, and I think the training data explains most of it. Seventeen digitizers labeled imagery from different years and seasons, each judging the six classes a little differently. Many points also fall on mixed 30&nbsp;m pixels, and the polygon centroids may not sit in the class their polygon described. <!-- TODO (Aaron): confirm against the confusion matrix which classes were most confused (e.g. rangeland vs agriculture) before naming them here. --> And the number may be optimistic: the train/test split was random, so test points often sit next to training points from the same scene. A spatially blocked split would be a fairer test.
+				<br><br>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A06_trainTuneClassify">Google Earth Engine script</a>
+				<br>
+				<details class="mt-2">
+					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/06_trainTuneClassify">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/06_trainTuneClassify">Loading…</code></pre>
+				</details>
+				<br>
+
+				<h4 class="mt-3">Change detection, 2017 to 2022</h4>
+				Finally, I classified summer composites from 2017 and 2022 for path 46, row 27 and crossed the two maps into a transition matrix. Each pixel's code records its 2017 class and its 2022 class, so a code of 27 means agriculture in 2017 and barren in 2022. The two dates bracket fire recovery and later flooding in the footprint.
+				<br><br>
+				<!-- TODO (Aaron): add the map image exported from 07_lulcMap, e.g.
+				<figure class="figure">
+					<a href="../../files/maps/images/agg_geog_415_lulcml.png"><img src="../../files/maps/images/agg_geog_415_lulcml.png" class="figure-img img-fluid" alt="Land cover classification of path 46 row 27, 2017 and 2022"></a>
+					<figcaption class="figure-caption">caption</figcaption>
+				</figure>
+				<br><br>
+				-->
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A07_lulcMap">Google Earth Engine script</a>
+				<br>
+				<details class="mt-2">
+					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/07_lulcMap">GitHub</a>)</summary>
+					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/07_lulcMap">Loading…</code></pre>
+				</details>
+				<br>
+
+				<h4 class="mt-3">What I would try next</h4>
+				With more time, I would validate with spatially blocked or stratified splits instead of a random one. I would also compare the classification against Dynamic World or NLCD, and add a snow and ice class so winter scenes can contribute without forcing snowy pixels into the six existing classes.
+				<br><br>
+			</div>
+		</div>
+	</div>
+</main>
+
+<footer>
+	<div class="container">
+	<div class="row">
+		<div class="col">
+			<hr/>
+			<p class="footer">Source: <a href="https://github.com/leependu/aggis.org.git">github.com/leependu/aggis.org.git</a></p>
+			<figure class="text-center mt-4 mb-0">
+				<blockquote class="blockquote fs-6 fst-italic mb-2">
+					<p class="mb-0">ad astra per alia porci</p>
+				</blockquote>
+				<img src="../../images/pigasus.png" alt="Pigasus, John Steinbeck&#39;s winged-pig self-portrait" width="150" height="117" class="img-fluid">
+				<figcaption class="blockquote-footer mt-2 mb-0">John Steinbeck</figcaption>
+			</figure>
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- load GEE scripts from the GitHub mirror -->
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js" integrity="sha384-F/bZzf7p3Joyp5psL90p/p89AZJsndkSoGwRpXcZhleCWhd8SnRuoYo4d0yirjJp" crossorigin="anonymous"></script>
+<script>
+document.querySelectorAll('code[data-src]').forEach(el => {
+  fetch(el.dataset.src)
+    .then(r => r.ok ? r.text() : Promise.reject(r.status))
+    .then(t => {
+      el.textContent = t;
+      if (window.hljs) hljs.highlightElement(el);
+    })
+    .catch(() => el.textContent = 'Could not load script; see the GitHub link above.');
+});
+</script>
+
+</body>
+
+</html>
