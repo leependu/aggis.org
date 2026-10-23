@@ -88,8 +88,10 @@
 				<br><br>
 				I completed my work for GEOG 415 in a private Google Earth Engine repository. I have since repackaged my scripts and refactored code with help from an LLM (Claude Opus 5.5), in particular by creating the shared <code>tools</code> module and the <code>07_lulcMap</code> script. All of the scripts are public in a Google Earth Engine repository, mirrored on GitHub. They are numbered in pipeline order, and each script's header still carries its original name from GEOG 415.
 				<br><br>
-				<li><a href="https://code.earthengine.google.com/?accept_repo=users/leependu/washington-lulc-ml-landsat">code.earthengine.google.com/?accept_repo=users/leependu/washington-lulc-ml-landsat</a></li>
-				<li><a href="https://github.com/leependu/washington-lulc-ml-landsat">github.com/leependu/washington-lulc-ml-landsat</a></li>
+				<ul>
+					<li><a href="https://code.earthengine.google.com/?accept_repo=users/leependu/washington-lulc-ml-landsat">code.earthengine.google.com/?accept_repo=users/leependu/washington-lulc-ml-landsat</a></li>
+					<li><a href="https://github.com/leependu/washington-lulc-ml-landsat">github.com/leependu/washington-lulc-ml-landsat</a></li>
+				</ul>
 				<br>
 				<h4 class="mt-3">Scene selection, ground truth digitization</h4>
 				My classmates and I filtered Landsat 8 and 9 Collection 2 Level 2 imagery by path, row, and season to find cloud-free scenes for our assigned year (mine: 2024). I found four usable scenes in spring, five in summer, three in fall, and only one in winter.
@@ -253,9 +255,11 @@
 				<h4 class="mt-3">Lessons for next time</h4>
 				Through this project, I've identified processes which may help improve accuracy for land cover classification models like this one:
 				<br><br>
-				<li>validate with spatially blocked or stratified splits instead of a random one</li>
-				<li>compare the classification against Dynamic World or NLCD</li>
-				<li>add a snow/ice class so winter scenes can contribute without forcing snowy pixels into the six existing classes</li>
+				<ul>
+					<li>validate with spatially blocked or stratified splits instead of a random one</li>
+					<li>compare the classification against Dynamic World or NLCD</li>
+					<li>add a snow/ice class so winter scenes can contribute without forcing snowy pixels into the six existing classes</li>
+				</ul>
 				<br>
 				I'm eager to continue practicing this kind of analysis with Google Earth Engine. For example, I've created some <a href="https://aggis.org/maps/warehouses/">timelapses which visualize the expansion of warehousing in California's Inland Empire</a> with Landsat and Sentinel-2 imagery; next I would like to examine this development through land cover classification and change detection analyses, like the one documented here for Washington state.
 				<br><br>
