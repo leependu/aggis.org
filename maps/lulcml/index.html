@@ -77,7 +77,6 @@
 </header>
 </div>
 
-<!-- DRAFT PROSE: placeholder text for Aaron to rewrite in his own words -->
 <main>
 	<div class="container">
 		<div class="row">
@@ -85,62 +84,60 @@
 				<h2><a href="https://aggis.org/maps/" style="text-decoration:none">Map Gallery</a>/Washington Land Cover Classification</h2>
 				<h6>(image)</h6>
 				<hr/>
-				In Spring 2025 I took GEOG 415: Spatial Data Science Futures with Dr. Bo Zhou in UCLA's MAGIST program. The course's major project was collaborative: every student digitized land cover ground truth for one Landsat footprint in Washington State, and the class pooled its work into one training set for a random forest classifier in Google Earth Engine. My footprint was WRS-2 path 43, row 27, which covers Spokane and the Palouse. The pooled set grew to 13 footprints and spans 2014 to 2024.
+				In Spring 2025 I took GEOG 415: Spatial Data Science Futures with Dr. Bo Zhou in UCLA's MAGIST program. In the course we explored a range of remote sensing analysis workflows in Google Earth Engine, culminating in a collaborative final project. My classmates and I each digitized land cover ground truth for one Landsat footprint in Washington State and pooled our work into one training set for a random forest classifier. My footprint was WRS-2 path 43, row 27, which covers Spokane and the Palouse. The pooled set grew to 13 footprints and spans 2014 to 2024.
 				<br><br>
-				All of the scripts are public in a Google Earth Engine repository, mirrored on GitHub:
-				<a href="https://github.com/leependu/washington-lulc-ml-landsat">github.com/leependu/washington-lulc-ml-landsat</a>.
-				They are numbered in pipeline order, and each script's header still carries its original course name.
-				In October 2026 I cleaned up the class scripts with help from an LLM (Claude Opus 5.5), which also wrote the shared <code>tools</code> module and the <code>07_lulcMap</code> script.
+				I completed my work for GEOG 415 in a private Google Earth Engine repository. I have since repackaged my scripts and refactored code with help from an LLM (Claude Opus 5.5), in particular by creating the shared <code>tools</code> module and the <code>07_lulcMap</code> script. All of the scripts are public in a Google Earth Engine repository, mirrored on GitHub. They are numbered in pipeline order, and each script's header still carries its original name from GEOG 415.
 				<br><br>
-
-				<h4 class="mt-3">Scene selection and digitization</h4>
-				I started by filtering Landsat 8 and 9 Collection 2 Level 2 imagery by path, row, and season to find cloud-free 2024 scenes. I found four usable scenes in spring, five in summer, three in fall, and only one in winter.
+				<li><a href="https://code.earthengine.google.com/?accept_repo=users/leependu/washington-lulc-ml-landsat">code.earthengine.google.com/?accept_repo=users/leependu/washington-lulc-ml-landsat</a></li>
+				<li><a href="https://github.com/leependu/washington-lulc-ml-landsat">github.com/leependu/washington-lulc-ml-landsat</a></li>
+				<br>
+				<h4 class="mt-3">Scene selection, ground truth digitization</h4>
+				My classmates and I filtered Landsat 8 and 9 Collection 2 Level 2 imagery by path, row, and season to find cloud-free scenes for our assigned year (mine: 2024). I found four usable scenes in spring, five in summer, three in fall, and only one in winter.
 				<br><br>
-				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A01_sceneSelection">Google Earth Engine script</a>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A01_sceneSelection">Google Earth Engine script: <code>01_sceneSelection</code></a>
 				<br>
 				<details class="mt-2">
 					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/01_sceneSelection">GitHub</a>)</summary>
 					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/01_sceneSelection">Loading…</code></pre>
 				</details>
 				<br>
-				The class target was about 150 points per season, split across six classes: urban, agriculture, rangeland, forest, water, and barren. I divided each season's budget by its number of scenes, which came to 42 points per spring scene, 30 per summer scene, and 54 per fall scene. The single winter scene got 120 points. That made 600 points across 13 scenes.
+				Our goal was to digitize 150 points ("ground truth") per season, split across six classes: urban <code>1</code>, agriculture <code>2</code>, rangeland <code>3</code>, forest <code>4</code>, water <code>5</code>, and barren <code>7</code>. I divided each season's budget by its number of scenes, which came to 42 points per spring scene, 30 per summer scene, and 54 per fall scene. The single winter scene got 120 points. That made 600 points across 13 scenes.
 				<br><br>
-				Looking back, my digitization scripts are clunky. Each point is written out by hand as its own <code>ee.Geometry.Point</code> literal, one script per scene. Today I would draw the geometries in the Code Editor and import them, or at least loop over a coordinate list.
+				In retrospect, my digitization scripts are clunky. Each point is written out by hand as its own <code>ee.Geometry.Point</code> literal, one script per scene. Today I would draw the geometries in the Code Editor and import them, or at least loop over a coordinate list.
 				<br><br>
-				<a href="https://github.com/leependu/washington-lulc-ml-landsat/tree/main/02_groundTruth/p43_r27">ground truth scripts, one per scene (GitHub)</a>
+				<a href="https://github.com/leependu/washington-lulc-ml-landsat/tree/main/02_groundTruth/p43_r27"><code>02_groundTruth</code> scripts, one per scene (GitHub)</a>
 				<br>
-				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A03_mergeGroundTruth">Google Earth Engine script: merging my 13 scenes</a>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A03_mergeGroundTruth">Google Earth Engine script: <code>03_mergeGroundTruth</code></a>
 				<br>
 				<details class="mt-2">
 					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/03_mergeGroundTruth">GitHub</a>)</summary>
 					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/03_mergeGroundTruth">Loading…</code></pre>
 				</details>
 				<br>
-
-				<h4 class="mt-3">Pooling the class's ground truth</h4>
-				Nineteen collections came in, one from each contributor, and no two were quite alike. Six were digitized as polygons rather than points, so I converted them to centroids. Four more used different property names or data types for the same fields, which I renamed and recast. Two lacked the acquisition date and path/row needed to tie each point back to its source scene; without that metadata they could not be sampled, so I left them out. After merging the remaining 17, I filtered out points that a sign error had placed in the wrong hemisphere. My thanks go to my classmates, whose work made a statewide training set possible.
+				<h4 class="mt-3">Pooling and normalizing the class's ground truth datasets</h4>
+				My classmates and I approached ground truth digitization in different ways, so some contributors' datasets required normalization before merging. Out of 19, six datasets were digitized as polygons rather than points, so I converted them to centroids; four datasets used different property names or data types for the same fields, so I renamed and recast them; and two datasets lacked the acquisition date and path/row needed to tie each point back to its source scene, so they had to be left out. After merging the remaining 17, I filtered out points that a sign error had placed in the wrong hemisphere.
 				<br><br>
-				Much of this step was metadata remediation rather than remote sensing: reading each contributor's schema, mapping it to a shared one, and documenting what could not be reconciled. It is the same kind of work I do with finding aids and collection metadata in special collections.
+				I'm grateful for my classmates' hard work, which enabled us to construct a statewide training set collectively. Our GEOG 415 cohort included students who had experience with Google Earth Engine, and many who did not, including myself.
 				<br><br>
-				Next, each point was joined to a Landsat scene from its own path/row within 15 days of its recorded date. The scene was then cloud-masked with the <code>QA_PIXEL</code> band and scaled to surface reflectance, and six bands were sampled at 30&nbsp;m.
+				After normalizing the data, each point was joined to a Landsat scene from its own path/row within 15 days of its recorded date. The scene was then cloud-masked with the <code>QA_PIXEL</code> band and scaled to surface reflectance, and six bands were sampled at 30&nbsp;m.
 				<br><br>
-				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A04_poolClassGroundTruth">Google Earth Engine script</a>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A04_poolClassGroundTruth">Google Earth Engine script: <code>04_poolClassGroundTruth</code></a>
 				<br>
 				<details class="mt-2">
 					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/04_poolClassGroundTruth">GitHub</a>)</summary>
 					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/04_poolClassGroundTruth">Loading…</code></pre>
 				</details>
 				<br>
-				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A05_harmonizeAndSample">Google Earth Engine script: harmonization</a>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A05_harmonizeAndSample">Google Earth Engine script: <code>05_harmonizeAndSample</code></a>
 				<br>
 				<details class="mt-2">
 					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/05_harmonizeAndSample">GitHub</a>)</summary>
 					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/05_harmonizeAndSample">Loading…</code></pre>
 				</details>
 				<br>
-				The join, cloud mask, reflectance scaling, and sampling functions were pasted in full into three of the class scripts. They now live in one shared module that <code>05</code> and <code>06</code> import.
+				When I wrote the scripts for GEOG 415 in Spring 2025, I pasted the join, cloud mask, reflectance scaling, and sampling functions, in full, into three of the my scripts. They now live in one shared <code>tools</code> module that <code>05_harmonizeAndSample</code> and <code>06_randomForest</code> import, thanks to a refactor by Claude Opus 5.5 in October 2026. 
 				<br><br>
-				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3Atools">Google Earth Engine script: shared tools</a>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3Atools">Google Earth Engine script: <code>tools</code></a>
 				<br>
 				<details class="mt-2">
 					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/tools">GitHub</a>)</summary>
@@ -149,7 +146,7 @@
 				<br>
 
 				<h4 class="mt-3">Training and tuning the random forest</h4>
-				Before tuning, I tested whether the sampling scale mattered and whether Tasseled Cap brightness, greenness, and wetness components improved on the six reflectance bands alone. Each test held out a random 20% of points (100 trees):
+				Before tuning the model, I tested whether the sampling scale mattered and whether Tasseled Cap brightness, greenness, and wetness components improved on the six reflectance bands alone. Each test held out a random 20% of points (100 trees):
 				<br><br>
 				<table class="table table-sm table-bordered results">
 					<thead>
@@ -163,7 +160,7 @@
 						<tr><td>150</td><td>0.663</td><td>0.663</td></tr>
 					</tbody>
 				</table>
-				The finest scale with Tasseled Cap won. I meant to run a grid search over the hyperparameters, but it ran past Earth Engine's memory limits. Instead I tuned one parameter at a time, carrying each winner into the next step:
+				The finest scale with Tasseled Cap won (30&nbsp;m). I exceeded Earth Engine's memory limits when trying to run a grid search over the hyperparameters, so instead I tuned one parameter at a time, carrying each winner into the next step:
 				<br><br>
 				<table class="table table-sm table-bordered results">
 					<thead>
@@ -177,9 +174,9 @@
 						<tr><td>maxNodes</td><td>unlimited</td><td>unlimited</td><td>0.702</td></tr>
 					</tbody>
 				</table>
-				The accuracies in these tables come from my 2025 runs. The final model, as published, reaches 68% overall accuracy on held-out points (kappa 0.62). That number moved while I prepared this page. The same model scored 70.2% in 2025, then 69.1% and 68.3% in 2026, with the same inputs, parameters, and seed. What changed was which random 20% of the points landed in the test set: Earth Engine reshuffles that split whenever upstream code changes.
+				The accuracies in these tables come from my Spring 2025 runs. The final model, as published, reaches 68% overall accuracy on held-out points (kappa 0.62). That number moved while I prepared this retrospective report. The same model scored 70.2% in 2025, then 69.1% and 68.3% in 2026, with the same inputs, parameters, and seed. What changed was which random 20% of the points landed in the test set (Earth Engine reshuffles that split whenever upstream code changes).
 				<br><br>
-				Accuracy varies a lot by class:
+				Accuracy varies significantly by class:
 				<br><br>
 				<table class="table table-sm table-bordered results">
 					<thead>
@@ -194,11 +191,11 @@
 						<tr><td>barren</td><td>0.57</td><td>0.47</td></tr>
 					</tbody>
 				</table>
-				Forest and water are easy to tell apart. Rangeland is the weakest class, and most of its errors are labeled agriculture or barren. That makes sense to me: in summer, sparse dry grassland looks a lot like fallow fields and bare ground.
+				Forest and water are easy to tell apart. Rangeland is the weakest class, and most of its errors are labeled agriculture or barren (in summer, sparse dry grassland looks a lot like fallow fields and bare ground).
 				<br><br>
-				Sixty-eight percent is modest, and I think the training data explains most of it. Seventeen digitizers labeled imagery from different years and seasons, each judging the six classes a little differently. Many points also fall on mixed 30&nbsp;m pixels, and the polygon centroids may not sit in the class their polygon described. The number may also be optimistic: the train/test split was random, so test points often sit next to training points from the same scene. The two-point swing from reshuffling the test set says the same thing: a single random split is not a stable measure, and a spatially blocked split would be a fairer test.
+				The model's modest 68% accuracy can in part be explained by disparate training data. Seventeen digitizers labeled imagery from different years and seasons, each judging the six land cover classes a little differently. Many points also fall on mixed 30&nbsp;m pixels, and the polygon centroids may not sit in the class their polygon described. The score may also be optimistic, because the train/test split was random, so test points often sit next to training points from the same scene. The two-point swing from reshuffling the test makes the same indication; a single random split is not a stable measure, and a spatially blocked split would be a fairer test.
 				<br><br>
-				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A06_randomForest">Google Earth Engine script</a>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A06_randomForest">Google Earth Engine script: <code>06_randomForest</code></a>
 				<br>
 				<details class="mt-2">
 					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/06_randomForest">GitHub</a>)</summary>
@@ -207,9 +204,9 @@
 				<br>
 
 				<h4 class="mt-3">Change detection, 2017 to 2022</h4>
-				Finally, I classified summer median composites from 2017 and 2022 for path 46, row 27, which runs from Seattle to the Cascades. I then crossed the two maps into a transition matrix. Each pixel's code records its 2017 class and its 2022 class, so a code of 27 means agriculture in 2017 and barren in 2022. On the change map, stable pixels are grey and changed pixels take the color of their 2022 class. This step is at the end of the random forest script above. <!-- TODO (Aaron): 06 still prints "fire recovery (2017) and flood impacts (2022)"; if you confirm which events, they could go here. -->
+				As an exercise in change detection, I classified summer median composites from 2017 and 2022 for path 46, row 27, which runs from Seattle to the Cascades, then crossed the two maps into a transition matrix. Each pixel's code records its 2017 class and its 2022 class, so a code of <code>27</code> means agriculture in 2017 and barren in 2022. On the change map, stable pixels are grey and changed pixels take the color of their 2022 class. This step is at the end of the random forest script above.
 				<br><br>
-				The last script loads the two exported classifications. It maps 2022 with a palette borrowed from the NLCD legend, and maps the change from 2017 in the same colors:
+				The last script <code>07_lulcMap</code> loads the two exported classifications. It maps 2022 with a palette borrowed from the NLCD legend, and maps the change from 2017 in the same colors:
 				<br><br>
 				<div class="row g-3" style="max-width:1100px">
 					<figure class="figure col-md-6 mb-0">
@@ -224,26 +221,29 @@
 				<div class="figure-caption mt-2" style="max-width:1100px">
 					Seattle through the Cascade foothills (random forest, Landsat 8/9, path 46 row 27)
 					<div class="d-flex flex-wrap gap-3 mt-2">
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#eb0000"></span> urban <code>1</code></span>
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#ab6c28"></span> agriculture <code>2</code></span>
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#dfdfc2"></span> rangeland <code>3</code></span>
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#1c5f2c"></span> forest <code>4</code></span>
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#476ba1"></span> water <code>5</code></span>
+						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#b3ac9f"></span> barren <code>7</code></span>
 						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#404040"></span> stable (change map)</span>
-						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#eb0000"></span> urban</span>
-						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#ab6c28"></span> agriculture</span>
-						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#dfdfc2"></span> rangeland</span>
-						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#1c5f2c"></span> forest</span>
-						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#476ba1"></span> water</span>
-						<span><span class="d-inline-block align-middle border" style="width:1em;height:1em;background:#b3ac9f"></span> barren</span>
 					</div>
 				</div>
 				<br><br>
-				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A07_lulcMap">Google Earth Engine script</a>
+				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3A07_lulcMap">Google Earth Engine script: <code>07_lulcMap</code></a>
 				<br>
 				<details class="mt-2">
 					<summary>show script (<a href="https://github.com/leependu/washington-lulc-ml-landsat/blob/main/07_lulcMap">GitHub</a>)</summary>
 					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/07_lulcMap">Loading…</code></pre>
 				</details>
 				<br>
-
-				<h4 class="mt-3">What I would try next</h4>
-				With more time, I would validate with spatially blocked or stratified splits instead of a random one. I would also compare the classification against Dynamic World or NLCD, and add a snow and ice class so winter scenes can contribute without forcing snowy pixels into the six existing classes.
+				<h4 class="mt-3">Lessons for next time</h4>
+				Through this project, I've identified processes which may help improve accuracy for land cover classification models like this one:
+				<br><br>
+				<li>validate with spatially blocked or stratified splits instead of a random one</li>
+				<li>compare the classification against Dynamic World or NLCD</li>
+				<li>add a snow/ice class so winter scenes can contribute without forcing snowy pixels into the six existing classes</li>
 				<br><br>
 			</div>
 		</div>
