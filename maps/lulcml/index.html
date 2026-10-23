@@ -135,6 +135,17 @@
 					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/05_harmonizeAndSample">Loading…</code></pre>
 				</details>
 				<br>
+				<div class="row g-3" style="max-width:1100px">
+					<figure class="figure col-md-6 mb-0">
+						<a href="../../files/maps/images/agg_geog_415_lulcml_groundTruth.png"><img src="../../files/maps/images/agg_geog_415_lulcml_groundTruth.png" class="figure-img img-fluid rounded" alt="Screenshot from Google Earth Engine Code Editor showing my ground truth dataset and one Landsat scene for WRS-2 path 43, row 27"></a>
+						<figcaption class="figure-caption">My ground truth dataset with one Landsat scene for WRS-2 path 43, row 27</figcaption>
+					</figure>
+					<figure class="figure col-md-6 mb-0">
+						<a href="../../files/maps/images/agg_geog_415_lulcml_poolClass.png"><img src="../../files/maps/images/agg_geog_415_lulcml_poolClass.png" class="figure-img img-fluid rounded" alt="Screenshot from Google Earth Engine Code Editor showing merged ground truth datasets from my GEOG 415 cohort"></a>
+						<figcaption class="figure-caption">Pooled ground truth datasets for my GEOG 415 cohort</figcaption>
+					</figure>
+				</div>
+				<br>
 				When I wrote the scripts for GEOG 415 in Spring 2025, I pasted the join, cloud mask, reflectance scaling, and sampling functions, in full, into three of the my scripts. They now live in one shared <code>tools</code> module that <code>05_harmonizeAndSample</code> and <code>06_randomForest</code> import, thanks to a refactor by Claude Opus 5.5 in October 2026. 
 				<br><br>
 				<a href="https://code.earthengine.google.com/?scriptPath=users%2Fleependu%2Fwashington-lulc-ml-landsat%3Atools">Google Earth Engine script: <code>tools</code></a>
