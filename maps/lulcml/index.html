@@ -101,7 +101,7 @@
 					<pre class="gee-script mt-2"><code class="language-javascript" data-src="https://raw.githubusercontent.com/leependu/washington-lulc-ml-landsat/main/01_sceneSelection">Loading…</code></pre>
 				</details>
 				<br>
-				Our goal was to digitize 150 points ("ground truth") per season, split across six classes: urban <code>1</code>, agriculture <code>2</code>, rangeland <code>3</code>, forest <code>4</code>, water <code>5</code>, and barren <code>7</code>. I divided each season's budget by its number of scenes, which came to 42 points per spring scene, 30 per summer scene, and 54 per fall scene. The single winter scene got 120 points. That made 600 points across 13 scenes.
+				Our goal was to digitize 150 points ("ground truth") per season, split across six classes: urban <code>1</code>, agriculture <code>2</code>, rangeland <code>3</code>, forest <code>4</code>, water <code>5</code>, and barren <code>7</code>. I divided each season's 150-point budget by its number of scenes, which came to 42 points per spring scene, 30 per summer scene, and 54 per fall scene. The single winter scene got 120 points. That made 600 points across 13 scenes.
 				<br><br>
 				In retrospect, my digitization scripts are clunky. Each point is written out by hand as its own <code>ee.Geometry.Point</code> literal, one script per scene. Today I would draw the geometries in the Code Editor and import them, or at least loop over a coordinate list.
 				<br><br>
@@ -229,6 +229,7 @@
 						<figcaption class="figure-caption">Change, 2017 to 2022: stable pixels in dark grey, changed pixels in their 2022 class</figcaption>
 					</figure>
 				</div>
+				<br>
 				<div class="figure-caption mt-2" style="max-width:1100px">
 					Seattle through the Cascade foothills (random forest, Landsat 8/9, path 46 row 27)
 					<div class="d-flex flex-wrap gap-3 mt-2">
