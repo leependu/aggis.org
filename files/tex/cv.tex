@@ -303,6 +303,15 @@
       \resumeItemListEnd
 
     \resumeProjectHeading
+      {\textbf{Washington Land Cover Classification} -- random forest in Google Earth Engine, GEOG 415, UCLA MAGIST}{2025}
+      \resumeItemListStart
+        \resumeItem{Class-wide collaborative project: each student digitized seasonal ground truth for one Landsat path/row and year, then the class pooled its collections into a statewide training set spanning 13 WRS-2 footprints and 2014--2024}
+        \resumeItem{Digitized 600 ground-truth points in six land cover classes across 13 cloud-free Landsat 8/9 scenes (four seasons, 2024); consolidated the class's 19 contributed collections by inspecting schemas, converting polygons to centroids, repairing property names and types, excluding collections without scene metadata, and screening coordinate errors}
+        \resumeItem{Joined each point to its source scene, masked clouds with the QA\_PIXEL band, scaled to surface reflectance, and sampled six bands plus Tasseled Cap components; ran a 30--150 m scale-sensitivity test and tuned a random forest classifier within Earth Engine memory limits (68\% overall accuracy; confusion matrix, producer's/consumer's accuracy, kappa)}
+        \resumeItem{Applied the model to 2017 and 2022 summer composites for post-classification change detection \lnk{https://aggis.org/maps/lulcml/}{aggis.org/maps/lulcml}, \lnk{https://github.com/leependu/washington-lulc-ml-landsat}{github.com/leependu/washington-lulc-ml-landsat}}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
       {\textbf{Istat Migration History Timeline} -- DH 201, UCLA Digital Humanities}{2024}
       \resumeItemListStart
         \resumeItem{Exploratory data visualization of Italian National Institute of Statistics (Istat) time series (1869--2014), published as an ArcGIS Online time-slider app \lnk{https://aggis.org/maps/istat/}{aggis.org/maps/istat}}
@@ -324,9 +333,9 @@
       \resumeItemListEnd
 
     \resumeProjectHeading
-      {\textbf{Remote sensing} -- GEOG 411/415, UCLA MAGIST}{2024}
+      {\textbf{Remote sensing} -- GEOG 411, UCLA MAGIST}{2024}
       \resumeItemListStart
-        \resumeItem{Supervised object-based classification with Landsat 8; vegetation (NDVI) change detection with NAIP imagery (ArcGIS Pro); training a landcover classification ML model with Google Earth Engine}
+        \resumeItem{Supervised object-based classification with Landsat 8; vegetation (NDVI) change detection with NAIP imagery (ArcGIS Pro)}
       \resumeItemListEnd
 
     \resumeProjectHeading
@@ -376,7 +385,7 @@
 %-----------COURSEWORK-----------
 \section{Coursework}
     \resumeItemListStart
-      \resumeItem{\textbf{UCLA, MAGIST (2023 -- 2025):} Applied Spatial Data Science; Geospatial Databases and Data Management (GEOG 410); Programming for Spatial Data Science I (GEOG 412) and II (GEOG 414); Geospatial Imagery Analysis (GEOG 411); Applied Spatial Statistics (GEOG 413); Spatial Data Science Futures (Google Earth Engine); Capstone I: Geospatial Research Methods (GEOG 498); Capstone II: Geospatial Capstone Project (GEOG 499, TRPA)}
+      \resumeItem{\textbf{UCLA, MAGIST (2023 -- 2025):} Applied Spatial Data Science; Geospatial Databases and Data Management (GEOG 410); Programming for Spatial Data Science I (GEOG 412) and II (GEOG 414); Geospatial Imagery Analysis (GEOG 411); Applied Spatial Statistics (GEOG 413); Spatial Data Science Futures (GEOG 415, Google Earth Engine); Capstone I: Geospatial Research Methods (GEOG 498); Capstone II: Geospatial Capstone Project (GEOG 499, TRPA)}
       \resumeItem{\textbf{UCLA, Graduate Certificate in Digital Humanities (2024 -- 2025):} Core Seminar in Digital Humanities; Professional Trajectories: Digital Humanities Methods in Practice; Introduction to Critical Cartography and Theories of Mapping}
       \resumeItem{\textbf{UCLA Extension, GIS and Geospatial Technology Certificate (2022 -- 2023):} Introduction to GIS; Cartography; Intermediate GIS; Geospatial Databases and Enterprise GIS; Advanced GIS; Web Design}
       % \resumeItem{\textbf{UCLA, B.A. Ethnomusicology and B.A. Anthropology (2017 -- 2021):} Stop-Motion Animation; ...}
@@ -419,7 +428,7 @@
      \textbf{Archives and Collections}{: FileMaker Pro, CatalogIt, OpenRefine, Aviary; EAD/OAC finding aids; controlled vocabularies; metadata crosswalking and remediation} \\
      \textbf{Audio and Video}{: FFmpeg, Steinberg WaveLab \& Cubase, Logic Pro, Audacity, Renoise; recording, mixing, and mastering; video editing and stop-motion animation} \\
      \textbf{Code Languages}{: Python, SQL, JavaScript, HTML/CSS, R, \LaTeX; Unix and PowerShell shells; Git} \\
-     \textbf{\hspace{0.15in}Specialties}{: scripting and batch processing, data parsing/transformation/visualization, REST APIs and ODBC} \\
+     \textbf{\hspace{0.15in}Specialties}{: scripting and batch processing, data parsing/transformation/visualization, REST APIs and ODBC, machine learning (random forest classification)} \\
      \textbf{Desktop GIS}{: ArcGIS Pro, QGIS; porting to Adobe Illustrator for refined cartography or animation} \\
      \textbf{Geospatial Analysis}{: PostgreSQL/PostGIS, GeoDa, RStudio, Google Earth Engine, geopandas, rasterio} \\
      \textbf{Web Mapping}{: ArcGIS Online (StoryMaps, Dashboards, Web AppBuilder [legacy]), Leaflet, D3, GeoServer, folium} \\

@@ -1,4 +1,7 @@
 title,purpose,topic,institution,department,class,format,tool
+DAHR Places: Recording Locations,fun,history,UCSB,Library Special Research Collections,Discography of American Historical Recordings / American Discography Project,ArcGIS app,ArcGIS Online
+Inland Empire Warehouses,fun,remote-sensing,aggis.org,,,video,Google Earth Engine
+Washington Land Cover Classification,school,remote-sensing,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 415 Spatial Data Science Futures,image,Google Earth Engine
 "TRPA: Cartographic Exercise #1, USGS/East of Nowhere Topographic Map",school,cartography,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 499 Capstone II: Geospatial Capstone Project,image,Adobe Illustrator
 "TRPA: Cartographic Exercise #2, Tahoe Landcover Map",school,cartography,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 499 Capstone II: Geospatial Capstone Project,image,Adobe Illustrator
 "TRPA: Cartographic Exercise #3, TART Mainline AM/PM Bus Route Map",school,cartography,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 499 Capstone II: Geospatial Capstone Project,image,Adobe Illustrator
@@ -15,8 +18,8 @@ Results of the 2020 Moldova Presidential Election,school,elections,UCLA,Master o
 Socioeconomic Marginalization in Mexico,school,socioeconomic,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 414 Programming for Geospatial Data Science,webmap,Leaflet
 Evolution of Income and Income Equality: 1800 to 2010,school,socioeconomic,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 414 Programming for Geospatial Data Science,webmap,D3
 Time Series of Italian Migration: 1900 to 2014,school,socioeconomic,UCLA,Master of Applied Geospatial Information Systems and Technologies,GEOG 414 Programming for Geospatial Data Science,webmap,D3
-ArcGIS Time Series of Italian Emigration,school,socioeconomic,UCLA,Digital Humanities Graduate Certificate,DH 201 Core Seminar in Digital Humanities,ArcGIS app,ArcGIS Online
-Mapping Pre-War Recording Hotspots for the DAHR,fun,history,UCSB,Library Special Research Collections,Discography of American Historical Recordings / American Discography Project,ArcGIS app,ArcGIS Online
+iSTAT Migration History Timeline,school,socioeconomic,UCLA,Digital Humanities Graduate Certificate,DH 201 Core Seminar in Digital Humanities,ArcGIS app,ArcGIS Online
+DAHR Global Recording Explorer,fun,history,UCSB,Library Special Research Collections,Discography of American Historical Recordings / American Discography Project,ArcGIS app,ArcGIS Online
 Olympic National Park Unofficial Visitor's Map,school,cartography,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 180 Cartography,pdf,Adobe Illustrator
 "Digitized Warehouse Structures in San Bernardino, CA",school,socioeconomic,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf,ArcGIS Pro
 Moran's I LISA Report for 2016 US Presidential Election,school,elections,UCLA Extension,GIS and Geospatial Technology Certificate,GEOG XL 181A Intermediate GIS,pdf,GeoDa
